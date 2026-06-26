@@ -294,4 +294,4 @@ source .venv/bin/activate && python -m uvicorn game_tools.server:app --host 0.0.
 
 open 2 browser go to 
 
-local:8000/client/index.html
+localhost:8000/client/index.html
