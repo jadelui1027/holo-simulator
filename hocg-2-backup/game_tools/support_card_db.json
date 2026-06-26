@@ -1,0 +1,4581 @@
+{
+  "hSD01-016": {
+    "card_number": "hSD01-016",
+    "card_name": "春先のどか",
+    "card_type": "サポート・スタッフ・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "draw",
+        "count": 3
+      }
+    ],
+    "raw_text": "自分のデッキを３枚引く。"
+  },
+  "hSD01-017": {
+    "card_number": "hSD01-017",
+    "card_name": "マネちゃん",
+    "card_type": "サポート・スタッフ・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_gte",
+        "count": 1
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "shuffle_hand_draw",
+        "draw_count": 5
+      }
+    ],
+    "raw_text": "自分の手札がこのカードを含まずに１枚以上なければ使えない。自分の手札すべてをデッキに戻してシャッフルする。そして自分のデッキを５枚引く。"
+  },
+  "hSD01-018": {
+    "card_number": "hSD01-018",
+    "card_name": "サブパソコン",
+    "card_type": "サポート・アイテム",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 5,
+        "filter": {
+          "card_type_contains": "LIMITED"
+        },
+        "pick_count": 1,
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": "自分のデッキの上から５枚を見る。その中から、LIMITEDのサポートカード１枚を公開し、手札に加える。そして残ったカードを好きな順でデッキの下に戻す。"
+  },
+  "hBP01-104": {
+    "card_number": "hBP01-104",
+    "card_name": "ふつうのパソコン",
+    "card_type": "サポート・アイテム",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_deck_to_stage",
+        "filter": {
+          "bloom_level": "Debut"
+        },
+        "pick_count": 1,
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のデッキから、Debutホロメン１枚を公開し、ステージに出す。そしてデッキをシャッフルする。"
+  },
+  "hBP02-076": {
+    "card_number": "hBP02-076",
+    "card_name": "カスタムパソコン",
+    "card_type": "サポート・アイテム",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "hand_card_to_deck_bottom",
+        "filter": {
+          "bloom_level": "Debut"
+        },
+        "description": "Put a Debut holomen from hand to deck bottom"
+      },
+      {
+        "type": "search_deck_evolved",
+        "filter": {
+          "bloom_level": "1st",
+          "exclude_buzz": true,
+          "same_name_as_returned": true
+        },
+        "pick_count": 1,
+        "shuffle_after": true,
+        "description": "Search deck for matching non-Buzz 1st holomen"
+      }
+    ],
+    "raw_text": "自分の手札のDebutホロメン1枚を公開し、デッキの下に戻す。自分のデッキから、戻したホロメンと同じカード名のBuzz以外の1stホロメン1枚を公開し、手札に加える。そしてデッキをシャッフルする。"
+  },
+  "hBP05-074": {
+    "card_number": "hBP05-074",
+    "card_name": "フレンドリーパソコン",
+    "card_type": "サポート・アイテム",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_deck_to_stage",
+        "filter": {
+          "bloom_level": "Debut",
+          "has_extra": "このホロメンはデッキに何枚でも入れられる"
+        },
+        "pick_count": {
+          "min": 1,
+          "max": 2
+        },
+        "shuffle_after": true
+      },
+      {
+        "type": "conditional",
+        "condition": {
+          "picked_count_eq": 2
+        },
+        "then": [
+          {
+            "type": "hand_card_to_deck_bottom",
+            "filter": {
+              "any": true
+            },
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": "自分のデッキから、エクストラ「このホロメンはデッキに何枚でも入れられる」を持つDebutホロメン1～2枚を公開し、ステージに出す。そしてデッキをシャッフルする。Debutホロメンを2枚出したなら、さらに、自分の手札1枚をデッキの下に戻す。"
+  },
+  "hSD01-019": {
+    "card_number": "hSD01-019",
+    "card_name": "スゴイパソコン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [
+      {
+        "type": "archive_stage_cheer",
+        "count": 1
+      }
+    ],
+    "actions": [
+      {
+        "type": "search_deck",
+        "filter": {
+          "bloom_level": [
+            "1st",
+            "2nd"
+          ],
+          "exclude_buzz": true
+        },
+        "pick_count": 1,
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "このカードは、自分のステージのエール１枚をアーカイブしなければ使えない。自分のデッキから、Buzz以外の[１stホロメンか２ndホロメン]１枚を公開し、手札に加える。そしてデッキをシャッフルする。"
+  },
+  "hBP01-102": {
+    "card_number": "hBP01-102",
+    "card_name": "アイドルマイク",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#歌",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": "自分の手札がこのカードを含まずに6枚以下でなければ使えない。自分のデッキの上から4枚を見る。その中から、#歌を持つホロメンを好きな枚数公開し、手札に加える。そして残ったカードを好きな順でデッキの下に戻す。"
+  },
+  "hBP01-103": {
+    "card_number": "hBP01-103",
+    "card_name": "ゲーミングパソコン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [
+      {
+        "type": "archive_holo_power",
+        "count": 1
+      }
+    ],
+    "actions": [
+      {
+        "type": "search_deck",
+        "filter": {
+          "bloom_level": [
+            "Debut",
+            "1st"
+          ],
+          "exclude_buzz": true,
+          "color": "same_as_oshi"
+        },
+        "pick_count": 1,
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のホロパワー1枚をアーカイブしなければ使えない。自分のデッキから、自分の推しホロメンと同色のBuzz以外の[Debutホロメンか１stホロメン]１枚を公開し、手札に加える。そしてデッキをシャッフルする。"
+  },
+  "hBP01-105": {
+    "card_number": "hBP01-105",
+    "card_name": "ペンライト",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [
+      {
+        "type": "archive_holo_power",
+        "count": 1
+      }
+    ],
+    "actions": [
+      {
+        "type": "search_yell_deck",
+        "filter": {
+          "color": "same_as_target_holomen"
+        },
+        "pick_count": 1,
+        "send_to": "holomen",
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のホロパワー１枚をアーカイブしなければ使えない。自分のエールデッキから、自分のホロメン１人と同色のエール１枚を公開し、自分のホロメンに送る。そしてエールデッキをシャッフルする。"
+  },
+  "hBP02-075": {
+    "card_number": "hBP02-075",
+    "card_name": "アイドルサインペン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#絵",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": "自分の手札がこのカードを含まずに6枚以下でなければ使えない。自分のデッキの上から4枚を見る。その中から、#絵を持つホロメンを好きな枚数公開し、手札に加える。そして残ったカードを好きな順でデッキの下に戻す。"
+  },
+  "hBP02-077": {
+    "card_number": "hBP02-077",
+    "card_name": "レトロパソコン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "life_lte",
+        "count": 3
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_archive",
+        "filter": {
+          "card_category": "ホロメン"
+        },
+        "pick_count": 1,
+        "to": "hand"
+      }
+    ],
+    "raw_text": "このカードは、自分のライフが3以下でなければ使えない。自分のアーカイブのホロメン１枚を手札に戻す。"
+  },
+  "hBP03-084": {
+    "card_number": "hBP03-084",
+    "card_name": "ゴージャスパソコン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [
+      {
+        "type": "archive_holo_power",
+        "count": 1
+      }
+    ],
+    "actions": [
+      {
+        "type": "search_deck",
+        "filter": {
+          "bloom_level": "1st",
+          "color": "same_as_oshi"
+        },
+        "pick_count": 1,
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のホロパワー1枚をアーカイブしなければ使えない。自分のデッキから、自分の推しホロメンと同色の1stホロメン1枚を公開し、手札に加える。そしてデッキをシャッフルする。"
+  },
+  "hBP03-085": {
+    "card_number": "hBP03-085",
+    "card_name": "スーパーパソコン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "bloom_level_pair": [
+            "Debut",
+            "1st"
+          ]
+        },
+        "pick_count": {
+          "per_type": 1
+        },
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": "自分のデッキの上から4枚を見る。その中から、[Debutホロメンと1stホロメン]1枚ずつを公開し、手札に加える。そして残ったカードを好きな順でデッキの下に戻す。"
+  },
+  "hBP03-086": {
+    "card_number": "hBP03-086",
+    "card_name": "デュアルモニターパソコン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_deck_to_stage",
+        "filter": {
+          "bloom_level": "Debut",
+          "has_extra": "このホロメンはデッキに何枚でも入れられる"
+        },
+        "pick_count": {
+          "min": 1,
+          "max": 2
+        },
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のデッキから、エクストラ「このホロメンはデッキに何枚でも入れられる」を持つDebutホロメン1～2枚を公開し、ステージに出す。そしてデッキをシャッフルする。"
+  },
+  "hBP04-089": {
+    "card_number": "hBP04-089",
+    "card_name": "ツートンカラーパソコン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "two_different_colors_on_stage"
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_deck",
+        "filter": {
+          "bloom_level": "1st",
+          "exclude_buzz": true,
+          "color": "same_as_selected_holomen"
+        },
+        "pick_count": 2,
+        "pick_description": "Select 2 holomen of different single colors, search 1 matching 1st each",
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のステージに色が1色で異なる色のホロメンが2人以上いなければ使えない。自分のステージの色が1色で異なる色のホロメン2人を選ぶ。自分のデッキから、Buzz以外のそれぞれ選んだホロメンと同色の1stホロメン1枚ずつを公開し、手札に加える。そしてデッキをシャッフルする。"
+  },
+  "hBP04-090": {
+    "card_number": "hBP04-090",
+    "card_name": "作業用パソコン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "pick_pair": [
+            {
+              "card_category": "ホロメン"
+            },
+            {
+              "card_type_in": [
+                "サポート・ツール",
+                "サポート・マスコット",
+                "サポート・ファン"
+              ]
+            }
+          ]
+        },
+        "pick_count": {
+          "per_type": 1
+        },
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": "自分の手札がこのカードを含まずに6枚以下でなければ使えない。自分のデッキの上から4枚を見る。その中から、ホロメン1枚と[ツールかマスコットかファン]1枚を公開し、公開したカードを手札に加える。そして残ったカードを好きな順でデッキの下に戻す。"
+  },
+  "hBP06-085": {
+    "card_number": "hBP06-085",
+    "card_name": "フェイバリットパソコン",
+    "card_type": "サポート・アイテム・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_deck",
+        "filter": {
+          "pick_triple": [
+            {
+              "bloom_level": "Debut",
+              "same_name_pair": true
+            },
+            {
+              "bloom_level": "Buzz",
+              "same_name_pair": true
+            },
+            {
+              "tag": "#Buzzグッズ",
+              "card_category": "サポート"
+            }
+          ]
+        },
+        "pick_count": 3,
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のデッキから、同じカード名の[DebutホロメンとBuzzホロメン]1枚ずつと#Buzzグッズを持つサポートカード1枚を公開し、公開したカードを手札に加える。そしてデッキをシャッフルする。"
+  },
+  "hSD01-020": {
+    "card_number": "hSD01-020",
+    "card_name": "ホロリスの輪",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "roll_dice",
+        "count": 1,
+        "outcomes": {
+          ">=3": [
+            {
+              "type": "archive_cheer_to_holomen",
+              "source": "archive",
+              "count": 1
+            }
+          ]
+        }
+      }
+    ],
+    "raw_text": "サイコロを１回振る：３以上の時、自分のアーカイブのエール１枚を自分のホロメンに送る。"
+  },
+  "hBP01-106": {
+    "card_number": "hBP01-106",
+    "card_name": "あとは任せた！",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "swap_own_center_back",
+        "back_condition": "not_resting"
+      }
+    ],
+    "raw_text": "自分のセンターホロメンとお休みしていないバックホロメン１人を交代させる。"
+  },
+  "hBP01-107": {
+    "card_number": "hBP01-107",
+    "card_name": "アンコール",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "archive_to_yell_deck",
+        "count": {
+          "min": 1,
+          "max": 3
+        },
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のアーカイブのエール１～３枚をエールデッキに戻す。そしてエールデッキをシャッフルする。"
+  },
+  "hBP01-112": {
+    "card_number": "hBP01-112",
+    "card_name": "わくわくいたずらタイム",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "roll_dice",
+        "count": 1,
+        "outcomes": {
+          ">=4": [
+            {
+              "type": "deal_special_damage",
+              "target": "opponent_back",
+              "amount": 20,
+              "no_life_on_down": true
+            }
+          ]
+        }
+      }
+    ],
+    "raw_text": "サイコロを１回振る：４以上の時、相手のバックホロメン１人に特殊ダメージ20を与える（ダウンしても相手のライフは減らない）。"
+  },
+  "hBP02-079": {
+    "card_number": "hBP02-079",
+    "card_name": "爆発の魔法",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "per_turn_limit": {
+      "tag": "#魔法",
+      "category": "イベント",
+      "limit": 1
+    },
+    "actions": [
+      {
+        "type": "deal_special_damage",
+        "target": "opponent_center_or_collab",
+        "amount": 20,
+        "no_life_on_down": true
+      }
+    ],
+    "raw_text": "相手のセンターホロメンかコラボホロメンに特殊ダメージ20を与える。ただし、ダウンしても相手のライフは減らない。自分の#魔法を持つイベントはターンに1回しか使えない。"
+  },
+  "hBP02-083": {
+    "card_number": "hBP02-083",
+    "card_name": "魔法のタンス",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [
+      {
+        "type": "archive_holo_power",
+        "count": 1
+      }
+    ],
+    "per_turn_limit": {
+      "tag": "#魔法",
+      "category": "イベント",
+      "limit": 1
+    },
+    "actions": [
+      {
+        "type": "archive_cheer_to_holomen",
+        "source": "archive",
+        "color": "紫",
+        "count": 1,
+        "target_holomen": "紫咲シオン"
+      }
+    ],
+    "raw_text": "自分のホロパワー1枚をアーカイブしなければ使えない。自分のアーカイブの紫エール1枚を、自分の〈紫咲シオン〉に送る。自分の#魔法を持つイベントはターンに1回しか使えない。"
+  },
+  "hBP03-087": {
+    "card_number": "hBP03-087",
+    "card_name": "コールアンドレスポンス",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "move_cheer",
+        "from": "own_stage",
+        "to": "own_holomen",
+        "count": 1
+      }
+    ],
+    "raw_text": "自分のステージのエール1枚を、自分のホロメンに付け替える。"
+  },
+  "hBP03-090": {
+    "card_number": "hBP03-090",
+    "card_name": "ホロライブ言えるかな？",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "bloom_level": "Debut"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": "自分のデッキの上から4枚を見る。その中から、Debutホロメンを好きな枚数公開し、手札に加える。そして残ったカードを好きな順でデッキの下に戻す。"
+  },
+  "hBP04-091": {
+    "card_number": "hBP04-091",
+    "card_name": "限界飯",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "per_turn_limit": {
+      "card_name": "限界飯",
+      "limit": 1
+    },
+    "actions": [
+      {
+        "type": "arts_cost_reduce",
+        "target_holomen": "一条莉々華",
+        "colorless_reduce": 1,
+        "this_turn": true
+      }
+    ],
+    "raw_text": "このターンの間、自分の〈一条莉々華〉1人のアーツに必要な無色エール-1。自分の〈限界飯〉はターンに1回しか使えない。"
+  },
+  "hBP04-094": {
+    "card_number": "hBP04-094",
+    "card_name": "まいたけダンス",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "move_cheer",
+        "from": "own_stage",
+        "to": "target_holomen",
+        "target_holomen": "儒烏風亭らでん",
+        "count": {
+          "min": 1,
+          "max": 2
+        }
+      },
+      {
+        "type": "conditional",
+        "condition": {
+          "target_cheer_gte": 3
+        },
+        "then": [
+          {
+            "type": "arts_boost",
+            "target": "selected",
+            "amount": 10,
+            "this_turn": true
+          }
+        ]
+      }
+    ],
+    "raw_text": "自分の〈儒烏風亭らでん〉1人を選ぶ。自分のステージのエール1～2枚を、選んだホロメンに付け替えられる。その後、選んだホロメンにエールが3枚以上付いている時、このターンの間、選んだホロメンのアーツ+10。"
+  },
+  "hBP05-075": {
+    "card_number": "hBP05-075",
+    "card_name": "牛丼",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "baton_touch_cost_reduce",
+        "target": "selected_holomen",
+        "reduce": 2,
+        "this_turn": true
+      },
+      {
+        "type": "heal",
+        "target": "selected_holomen",
+        "amount": 20
+      }
+    ],
+    "raw_text": "自分のホロメン1人を選ぶ。このターンの間、選んだホロメンのバトンタッチに必要な無色エール-2。その後、選んだホロメンのHP20回復。"
+  },
+  "hBP05-076": {
+    "card_number": "hBP05-076",
+    "card_name": "ちょこのビーフストロガノフ",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "arts_boost",
+        "target": "selected_holomen",
+        "amount": 10,
+        "this_turn": true
+      },
+      {
+        "type": "arts_boost",
+        "target_holomen": "癒月ちょこ",
+        "bloom_level_gte": "2nd",
+        "amount": 10,
+        "this_turn": true
+      }
+    ],
+    "raw_text": "このターンの間、自分のステージのホロメン1人のアーツ+10。その後、このターンの間、自分のステージの2ndホロメンの〈癒月ちょこ〉1人のアーツ+10。"
+  },
+  "hSD04-013": {
+    "card_number": "hSD04-013",
+    "card_name": "ちょこ先のお薬",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "heal",
+        "target": "selected_holomen",
+        "amount": 20
+      },
+      {
+        "type": "conditional",
+        "condition": {
+          "stage_has_tag": "#料理"
+        },
+        "then": [
+          {
+            "type": "arts_boost",
+            "target": "selected",
+            "amount": 20,
+            "this_turn": true
+          }
+        ]
+      }
+    ],
+    "raw_text": "自分のホロメン1人を選ぶ。選んだホロメンのHP20回復。自分のステージに#料理を持つホロメンがいる時、さらに、このターンの間、選んだホロメンのアーツ+20。"
+  },
+  "hBP06-087": {
+    "card_number": "hBP06-087",
+    "card_name": "しめじダンス",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "oshi_is",
+        "name": "儒烏風亭らでん"
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "archive_yell_deck_top",
+        "count": 1
+      },
+      {
+        "type": "search_archive",
+        "filter": {
+          "card_name": "儒烏風亭らでん"
+        },
+        "pick_count": 1,
+        "to": "hand"
+      }
+    ],
+    "raw_text": "自分の推しホロメンが〈儒烏風亭らでん〉でなければ使えない。自分のエールデッキの上から1枚をアーカイブする。その後、自分のアーカイブの〈儒烏風亭らでん〉1枚を手札に戻す。"
+  },
+  "hBP06-092": {
+    "card_number": "hBP06-092",
+    "card_name": "マヨネーズちゅっちゅっ",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "arts_boost",
+        "target_holomen": "博衣こより",
+        "amount": 30,
+        "this_turn": true
+      }
+    ],
+    "raw_text": "このターンの間、自分のステージの〈博衣こより〉1人のアーツ+30。"
+  },
+  "hSD12-015": {
+    "card_number": "hSD12-015",
+    "card_name": "脱獄を果たした共犯者たち",
+    "card_type": "サポート・イベント",
+    "is_limited": false,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "all_stage_has_tag",
+        "tag": "#Advent"
+      }
+    ],
+    "costs": [],
+    "per_turn_limit": {
+      "card_name": "脱獄を果たした共犯者たち",
+      "limit": 1
+    },
+    "actions": [
+      {
+        "type": "deal_special_damage",
+        "target": "opponent_center",
+        "amount": 20
+      },
+      {
+        "type": "archive_cheer_to_holomen",
+        "source": "archive",
+        "count": 1
+      }
+    ],
+    "raw_text": "自分のステージのホロメン全員が#Adventでなければ使えない。相手のセンターホロメンに特殊ダメージ20を与える。その後、自分のアーカイブのエール1枚を自分のホロメンに送る。1/turn。"
+  },
+  "hSD01-021": {
+    "card_number": "hSD01-021",
+    "card_name": "First Gravity",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "card_name_in": [
+            "ときのそら",
+            "AZKi"
+          ],
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-109": {
+    "card_number": "hBP01-109",
+    "card_name": "月と兎の物語",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "card_name_in": [
+            "兎田ぺこら",
+            "ムーナ・ホシノヴァ"
+          ],
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD02-012": {
+    "card_number": "hSD02-012",
+    "card_name": "いろはにほへっと あやふぶみ",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "card_name_in": [
+            "白上フブキ",
+            "大神ミオ",
+            "百鬼あやめ"
+          ],
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD03-012": {
+    "card_number": "hSD03-012",
+    "card_name": "泥棒建設",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "card_name_in": [
+            "猫又おかゆ",
+            "鷹嶺ルイ",
+            "大神ミオ",
+            "白上フブキ",
+            "ラプラス・ダークネス",
+            "戌神ころね"
+          ],
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD04-012": {
+    "card_number": "hSD04-012",
+    "card_name": "スバちょこルーナ",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "card_name_in": [
+            "大空スバル",
+            "癒月ちょこ",
+            "姫森ルーナ"
+          ],
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-078": {
+    "card_number": "hBP02-078",
+    "card_name": "かなた建設",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "card_name_in": [
+            "天音かなた",
+            "AZKi",
+            "沙花叉クロヱ"
+          ],
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD07-014": {
+    "card_number": "hSD07-014",
+    "card_name": "不知火建設",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "card_name_in": [
+            "不知火フレア",
+            "尾丸ポルカ",
+            "さくらみこ",
+            "星街すいせい",
+            "白銀ノエル"
+          ],
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP05-077": {
+    "card_number": "hBP05-077",
+    "card_name": "バカタレサーカス",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "card_name_in": [
+            "白上フブキ",
+            "不知火フレア",
+            "角巻わため",
+            "尾丸ポルカ"
+          ],
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-111": {
+    "card_number": "hBP01-111",
+    "card_name": "ホロライブインドネシア3期生",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#ID３期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-113": {
+    "card_number": "hBP01-113",
+    "card_name": "Promise",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#Promise",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hPR-002": {
+    "card_number": "hPR-002",
+    "card_name": "ReGLOSS",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#ReGLOSS",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-080": {
+    "card_number": "hBP02-080",
+    "card_name": "秘密結社holoX",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#秘密結社holoX",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-081": {
+    "card_number": "hBP02-081",
+    "card_name": "ホロライブ インドネシア2期生",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#ID2期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-082": {
+    "card_number": "hBP02-082",
+    "card_name": "ホロライブゲーマーズ",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#ゲーマーズ",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-085": {
+    "card_number": "hBP02-085",
+    "card_name": "HOLOLIVE FANTASY",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#3期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-091": {
+    "card_number": "hBP03-091",
+    "card_name": "ホロライブインドネシア1期生",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#ID1期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-092": {
+    "card_number": "hBP03-092",
+    "card_name": "ホロライブ0期生",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#0期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-093": {
+    "card_number": "hBP03-093",
+    "card_name": "ホロライブ4期生",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#4期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-094": {
+    "card_number": "hBP03-094",
+    "card_name": "FPS配信",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#シューター",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-092": {
+    "card_number": "hBP04-092",
+    "card_name": "ねぽらぼ",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#5期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-093": {
+    "card_number": "hBP04-093",
+    "card_name": "ホロライブ2期生",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#2期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-096": {
+    "card_number": "hBP04-096",
+    "card_name": "Advent",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#Advent",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP05-078": {
+    "card_number": "hBP05-078",
+    "card_name": "晩酌配信",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#お酒",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP06-091": {
+    "card_number": "hBP06-091",
+    "card_name": "ホロライブ1期生",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#1期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD10-012": {
+    "card_number": "hSD10-012",
+    "card_name": "FLOW GLOW",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#FLOW GLOW",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD13-016": {
+    "card_number": "hSD13-016",
+    "card_name": "Justice",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "hand_size_lte",
+        "count": 6
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "view_deck_top",
+        "count": 4,
+        "filter": {
+          "tag": "#Justice",
+          "card_category": "ホロメン"
+        },
+        "pick_count": "any",
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-108": {
+    "card_number": "hBP01-108",
+    "card_name": "じゃあ敵だね",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "swap_opponent_center_back"
+      }
+    ],
+    "raw_text": "相手のセンターホロメンとバックホロメン１人を交代させる。"
+  },
+  "hBP01-110": {
+    "card_number": "hBP01-110",
+    "card_name": "鈍器でぶっ叩くわよ！",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "roll_dice",
+        "count": 1,
+        "outcomes": {
+          "<=3": [
+            {
+              "type": "deal_special_damage",
+              "target": "opponent_holomen",
+              "amount": 0,
+              "effect": "archive_1_cheer"
+            }
+          ]
+        },
+        "alt_oshi": {
+          "name": "七詩ムメイ",
+          "replace_with": [
+            {
+              "type": "deal_special_damage",
+              "target": "opponent_center",
+              "amount": 0,
+              "effect": "archive_2_cheer",
+              "game_limit": 1
+            }
+          ]
+        }
+      }
+    ],
+    "raw_text": "サイコロを１回振る：３以下の時、相手のホロメンのエール１枚をアーカイブする。◆自分の推しホロメンが〈七詩ムメイ〉の時、能力変更可能[ゲームに１回]相手のセンターホロメンのエール２枚をアーカイブする。"
+  },
+  "hBP02-084": {
+    "card_number": "hBP02-084",
+    "card_name": "みっころね24",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "draw",
+        "count": 2
+      },
+      {
+        "type": "roll_dice",
+        "count": 1,
+        "outcomes": {
+          "3,5,6": [
+            {
+              "type": "search_deck",
+              "filter": {
+                "bloom_level": "Debut"
+              },
+              "pick_count": 1,
+              "shuffle_after": true
+            }
+          ],
+          "2,4": [
+            {
+              "type": "draw",
+              "count": 1
+            }
+          ]
+        }
+      }
+    ],
+    "raw_text": "自分のデッキを2枚引き、サイコロを1回振る：3か5か6の時、自分のデッキから、Debutホロメン1枚を手札に加える。2か4の時、自分のデッキを1枚引く。"
+  },
+  "hBP03-088": {
+    "card_number": "hBP03-088",
+    "card_name": "凸待ち",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "life_lt_opponent"
+      },
+      {
+        "type": "no_opponent_collab"
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "opponent_move_back_to_collab",
+        "note": "Opponent chooses which back holomen to move to collab (not treated as collab action)"
+      }
+    ],
+    "raw_text": "自分のライフが相手より少ない時にしか使えない。相手のコラボホロメンがいない時、相手はバックホロメン1人をコラボポジションに移動させる（移動はコラボとしては扱わない）。"
+  },
+  "hBP03-089": {
+    "card_number": "hBP03-089",
+    "card_name": "ファンミーティング",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_deck",
+        "filter": {
+          "card_type_contains": "ファン"
+        },
+        "pick_count": 1,
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のデッキから、ファン1枚を手札に加える。そしてデッキをシャッフルする。"
+  },
+  "hBP04-095": {
+    "card_number": "hBP04-095",
+    "card_name": "マスコットキャッチャー",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_deck",
+        "filter": {
+          "card_type_contains": "マスコット"
+        },
+        "pick_count": 1,
+        "shuffle_after": true
+      }
+    ],
+    "raw_text": "自分のデッキから、マスコット1枚を手札に加える。そしてデッキをシャッフルする。"
+  },
+  "hBP05-079": {
+    "card_number": "hBP05-079",
+    "card_name": "み俺恥",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "draw",
+        "count": 2
+      },
+      {
+        "type": "conditional",
+        "condition": {
+          "prev_turn_own_downed": true,
+          "life_lt_opponent": true
+        },
+        "then": [
+          {
+            "type": "archive_cheer_to_holomen",
+            "source": "archive",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": "自分のデッキを2枚引く。その後、直前の相手のターンに自分のホロメンがダウンしていて、自分のライフが相手のライフより少ないなら、アーカイブのエール1枚を自分のホロメン1人に送る。"
+  },
+  "hBP05-080": {
+    "card_number": "hBP05-080",
+    "card_name": "SorAZセレブレーション",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "draw",
+        "count": 2
+      },
+      {
+        "type": "view_deck_top",
+        "count": 5,
+        "filter": {
+          "bloom_level": "1st"
+        },
+        "pick_count": 1,
+        "rest_to": "deck_bottom"
+      }
+    ],
+    "raw_text": "自分のデッキを2枚引く。その後、自分のデッキの上から5枚を見る。その中から、1stホロメン1枚を手札に加える。そして残ったカードを好きな順でデッキの下に戻す。"
+  },
+  "hBP06-086": {
+    "card_number": "hBP06-086",
+    "card_name": "愛情いっぱい召し上がれ♪",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "draw",
+        "count": 1
+      },
+      {
+        "type": "heal",
+        "target": "selected_holomen",
+        "amount": 100
+      }
+    ],
+    "raw_text": "自分のデッキを1枚引く。その後、自分のホロメン1人のHP100回復。"
+  },
+  "hBP06-088": {
+    "card_number": "hBP06-088",
+    "card_name": "ドッキリうさぎ",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "prev_turn_downed_and_life_lt"
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "opponent_rest_to_back",
+        "target": "opponent_center_or_collab",
+        "skip_next_reset": true
+      }
+    ],
+    "raw_text": "直前の相手のターンに自分のホロメンがダウンしていて、自分のライフが相手より少ない時にしか使えない。相手のセンターホロメンかコラボホロメンを選ぶ。選んだホロメンをお休みさせてバックポジションに移動させる。次の相手のリセットステップでアクティブにならない。"
+  },
+  "hBP06-089": {
+    "card_number": "hBP06-089",
+    "card_name": "ドローイングストリーム",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_yell_deck",
+        "filter": {
+          "any_cheer": true
+        },
+        "pick_count": 1,
+        "send_to_tag": "#絵",
+        "shuffle_after": true
+      },
+      {
+        "type": "search_archive",
+        "filter": {
+          "tag": "#絵",
+          "card_category": "ホロメン"
+        },
+        "pick_count": 1,
+        "to": "hand"
+      }
+    ],
+    "raw_text": "自分のエールデッキから、エール1枚を自分の#絵を持つホロメンに送る。そしてエールデッキをシャッフルする。その後、自分のアーカイブの#絵を持つホロメン1枚を手札に戻す。"
+  },
+  "hBP06-090": {
+    "card_number": "hBP06-090",
+    "card_name": "ブルームステージ",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "draw",
+        "count": 2
+      },
+      {
+        "type": "conditional",
+        "condition": {
+          "life_lte": 4
+        },
+        "then": [
+          {
+            "type": "extra_bloom",
+            "description": "Can bloom a 1st holomen (that bloomed from Debut this turn) once more using hand card"
+          }
+        ]
+      }
+    ],
+    "raw_text": "自分のデッキを2枚引く。その後、自分のライフが4以下なら、このターンにDebutからBloomした1stホロメン1人をもう1回Bloomできる。"
+  },
+  "hBP06-093": {
+    "card_number": "hBP06-093",
+    "card_name": "山田ルイ54世",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "all_stage_has_tag",
+        "tag": "#秘密結社holoX"
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_deck",
+        "filter": {
+          "tag": "#秘密結社holoX",
+          "card_category": "ホロメン"
+        },
+        "pick_count": 2,
+        "shuffle_after": true
+      },
+      {
+        "type": "conditional",
+        "condition": {
+          "own_cheer_lt_opponent": true
+        },
+        "then": [
+          {
+            "type": "yell_deck_top_to_holomen",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": "自分のステージのホロメン全員が#秘密結社holoXでなければ使えない。自分のデッキから#秘密結社holoX2枚を手札に加える。シャッフル。自分のエールが相手より少ないなら、エールデッキの上から1枚をホロメンに送れる。"
+  },
+  "hBP06-094": {
+    "card_number": "hBP06-094",
+    "card_name": "ワークアウト",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "own_collab_or_no_opp_collab"
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "arts_boost",
+        "target": "selected_holomen",
+        "amount": 20,
+        "amount_if_buzz_or_2nd": 50,
+        "this_turn": true
+      }
+    ],
+    "raw_text": "自分のコラボホロメンがいるか、相手のコラボホロメンがいない時にしか使えない。このターンの間、自分のステージのホロメン1人のアーツ+20。そのホロメンがBuzzか2ndなら、かわりにアーツ+50。"
+  },
+  "hBP06-095": {
+    "card_number": "hBP06-095",
+    "card_name": "IDENTIFY -AREA 15-",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "all_stage_has_tag",
+        "tag": "#ID1期生"
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "search_deck",
+        "filter": {
+          "tag": "#ID1期生",
+          "card_category": "ホロメン"
+        },
+        "pick_count": 2,
+        "shuffle_after": true
+      },
+      {
+        "type": "conditional",
+        "condition": {
+          "yell_deck_empty": true
+        },
+        "then": [
+          {
+            "type": "passive_ability",
+            "description": "This turn: when own #ID1期生 downs opponent center, opponent life -1"
+          }
+        ]
+      }
+    ],
+    "raw_text": "自分のステージのホロメン全員が#ID1期生でなければ使えない。自分のデッキから#ID1期生2枚を手札に加える。シャッフル。エールデッキが0枚なら、このターン#ID1期生がセンターダウンさせた時、相手ライフ-1。"
+  },
+  "hBP06-096": {
+    "card_number": "hBP06-096",
+    "card_name": "2人あわせてラムダック！",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [],
+    "costs": [],
+    "actions": [
+      {
+        "type": "archive_cheer_to_holomen",
+        "source": "archive",
+        "count": 1,
+        "target_holomen": "角巻わため"
+      },
+      {
+        "type": "archive_cheer_to_holomen",
+        "source": "archive",
+        "count": 1,
+        "target_holomen": "大空スバル"
+      },
+      {
+        "type": "arts_boost",
+        "target_holomen": "角巻わため",
+        "amount": 20,
+        "this_turn": true
+      },
+      {
+        "type": "arts_boost",
+        "target_holomen": "大空スバル",
+        "amount": 20,
+        "this_turn": true
+      }
+    ],
+    "raw_text": "自分の[角巻わためと大空スバル]1人ずつを選ぶ。自分のアーカイブのエールを選んだホロメンに1枚ずつ送る。その後、このターンの間、選んだホロメンのアーツ+20。"
+  },
+  "hSD10-011": {
+    "card_number": "hSD10-011",
+    "card_name": "WHAT'S UP!!!!! KEEEEEP GROWING!!!!!",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "all_stage_has_tag",
+        "tag": "#FLOW GLOW"
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "send_archive_cheer_split",
+        "total": 3,
+        "targets": [
+          "center",
+          "collab"
+        ],
+        "max_per_target": 2
+      }
+    ],
+    "raw_text": "自分のステージのホロメン全員が#FLOW GLOWでなければ使えない。自分のアーカイブのエール3枚を選び、自分のセンターホロメンとコラボホロメンに割り振って送る。ただしホロメン1人に送る枚数は2枚まで。"
+  },
+  "hSD13-017": {
+    "card_number": "hSD13-017",
+    "card_name": "JUSTICE, JUST LIKE THAT!!!!",
+    "card_type": "サポート・イベント・LIMITED",
+    "is_limited": true,
+    "attachment_type": null,
+    "conditions": [
+      {
+        "type": "all_stage_has_tag",
+        "tag": "#Justice"
+      }
+    ],
+    "costs": [],
+    "actions": [
+      {
+        "type": "return_stacked_to_hand",
+        "target": "selected_holomen",
+        "count": {
+          "min": 1,
+          "max": 2
+        }
+      },
+      {
+        "type": "arts_boost",
+        "target": "selected",
+        "amount_per_returned": 20,
+        "this_turn": true
+      }
+    ],
+    "raw_text": "自分のステージのホロメン全員が#Justiceでなければ使えない。ホロメン1人を選ぶ。重なっているホロメン1~2枚を手札に戻す。このターンの間、戻した枚数×アーツ+20。"
+  },
+  "hBP01-115": {
+    "card_number": "hBP01-115",
+    "card_name": "星街すいせいのマイク",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "星街すいせい",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "on_down_opponent",
+            "effect": "send_yell_deck_top_to_self"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD02-013": {
+    "card_number": "hSD02-013",
+    "card_name": "阿修羅＆羅刹",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "百鬼あやめ",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "arts+10"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-086": {
+    "card_number": "hBP02-086",
+    "card_name": "ホロスパークリング",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 20
+      },
+      {
+        "type": "text",
+        "description": "このツールが付いている#お酒を持たないホロメンが受けるダメージ+10。"
+      }
+    ],
+    "triggered_effects": [],
+    "raw_text": ""
+  },
+  "hBP02-087": {
+    "card_number": "hBP02-087",
+    "card_name": "紫咲シオンの魔法のステッキ",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "紫咲シオン",
+          "bloom_gte": "1st",
+          "position": "center"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "oshi_skill_turn_limit_2x",
+            "skill_name": "ねえ゛え゛え゛え゛え゛え゛え゛"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-088": {
+    "card_number": "hBP02-088",
+    "card_name": "森カリオペの鎌",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "森カリオペ",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "on_attach_from_hand",
+            "effect": "archive_deck_top_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-095": {
+    "card_number": "hBP03-095",
+    "card_name": "ホロキャップ",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "condition": {
+          "bloom_level_in": [
+            "Debut",
+            "Spot"
+          ]
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "hp+30"
+          },
+          {
+            "trigger": "passive",
+            "effect": "immune_special_damage"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-096": {
+    "card_number": "hBP03-096",
+    "card_name": "ライフル",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "tag": "#シューター",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "special_damage_to_opponent+10"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-097": {
+    "card_number": "hBP03-097",
+    "card_name": "リコーダー",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "音乃瀬奏",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "on_down_opponent",
+            "effect": "draw_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-097": {
+    "card_number": "hBP04-097",
+    "card_name": "緑の試験管",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "博衣こより",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "main_step_activate",
+            "cost": "archive_1_cheer",
+            "effect": "activate_resting_holox_holomen"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-098": {
+    "card_number": "hBP04-098",
+    "card_name": "鍛冶ハンマー",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "tag": "#ID3期生",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "arts+10"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-099": {
+    "card_number": "hBP04-099",
+    "card_name": "古代武器",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "アーニャ・メルフィッサ",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "arts+10_per_古代武器_on_stage"
+          },
+          {
+            "trigger": "on_down_opponent_turn",
+            "cost": "archive_hand_1",
+            "effect": "return_tool_to_hand"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-114": {
+    "card_number": "hBP01-114",
+    "card_name": "石の斧",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 20
+      },
+      {
+        "type": "text",
+        "description": "このツールが付いているホロメンがアーツを使った時、このホロメンに特殊ダメージ10を与える。"
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "アキ・ローゼンタール",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "on_self_heal",
+            "effect": "draw_1",
+            "per_turn": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP05-081": {
+    "card_number": "hBP05-081",
+    "card_name": "白銀ノエルのメイス",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "白銀ノエル",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "condition": "cheer_gte_3",
+            "effect": "arts+20"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP05-082": {
+    "card_number": "hBP05-082",
+    "card_name": "アキ・ローゼンタールの斧",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [
+      {
+        "type": "archive_hand_card",
+        "count": 1,
+        "alt": {
+          "type": "archive_stage_tool",
+          "tool_name": "石の斧"
+        }
+      }
+    ],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "アキ・ローゼンタール",
+          "bloom_gte": "2nd"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "arts+40"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP05-083": {
+    "card_number": "hBP05-083",
+    "card_name": "ネリッサ・レイヴンクロフトの杖",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "ネリッサ・レイヴンクロフト",
+          "bloom_gte": "2nd",
+          "position_in": [
+            "center",
+            "collab"
+          ]
+        },
+        "effects": [
+          {
+            "trigger": "on_archive_hand_by_ability",
+            "effect": "deal_special_damage_20_to_opponent_center_or_collab",
+            "per_turn": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP05-084": {
+    "card_number": "hBP05-084",
+    "card_name": "角巻わためのハープ",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "角巻わため",
+          "bloom_gte": "2nd"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "condition": "stage_has_わためいと",
+            "effect": "arts+10"
+          },
+          {
+            "trigger": "on_arts_used",
+            "effect": "send_archive_cheer_to_角巻わため"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD06-011": {
+    "card_number": "hSD06-011",
+    "card_name": "ﾁｬｷ丸",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "風真いろは",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "on_receive_damage_opponent_turn",
+            "effect": "deal_special_damage_20_to_opponent_center",
+            "no_life_on_down": true,
+            "per_turn": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD10-013": {
+    "card_number": "hSD10-013",
+    "card_name": "ふぐ太郎",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "text",
+        "description": "このツールが付いている#FLOW GLOWを持つホロメンのアーツ+10。"
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "tag": "#FLOW GLOW"
+        },
+        "effects": [
+          {
+            "trigger": "end_step_if_arts_used",
+            "effect": "search_deck_flow_glow_debut_or_spot_to_stage_then_return_tool"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP06-097": {
+    "card_number": "hBP06-097",
+    "card_name": "カワイイスタジャン",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "condition": {
+          "bloom_level": "Buzz"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "hp+30"
+          },
+          {
+            "trigger": "passive",
+            "effect": "hp_immune_opponent_main_step"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP06-098": {
+    "card_number": "hBP06-098",
+    "card_name": "鬼神刀「阿修羅」",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "百鬼あやめ"
+        },
+        "effects": [
+          {
+            "trigger": "on_collab",
+            "condition": "self_life_1_and_no_opponent_collab",
+            "effect": "opponent_move_back_to_collab"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP06-099": {
+    "card_number": "hBP06-099",
+    "card_name": "ゆび",
+    "card_type": "サポート・ツール",
+    "is_limited": false,
+    "attachment_type": "tool",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      },
+      {
+        "type": "text",
+        "description": "このツールを手札から〈戌神ころね〉に付けた時、自分のアーカイブの〈戌神ころね〉1枚を手札に戻せる。"
+      }
+    ],
+    "triggered_effects": [],
+    "raw_text": ""
+  },
+  "hBP01-116": {
+    "card_number": "hBP01-116",
+    "card_name": "うぱお",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "天音かなた"
+        },
+        "effects": [
+          {
+            "trigger": "on_receive_damage_opponent_turn",
+            "effect": "deal_special_damage_20_to_opponent_center",
+            "per_turn": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-117": {
+    "card_number": "hBP01-117",
+    "card_name": "フレンド",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "七詩ムメイ"
+        },
+        "effects": [
+          {
+            "trigger": "on_receive_damage_opponent_turn",
+            "cost": "archive_this_mascot",
+            "effect": "damage_received-30"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-118": {
+    "card_number": "hBP01-118",
+    "card_name": "あん肝",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "ときのそら"
+        },
+        "effects": [
+          {
+            "trigger": "on_arts_use",
+            "effect": "treat_as_white_cheer"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-119": {
+    "card_number": "hBP01-119",
+    "card_name": "ジョブズ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "アキ・ローゼンタール"
+        },
+        "effects": [
+          {
+            "trigger": "on_arts_used",
+            "effect": "heal_10_any_holomen"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-120": {
+    "card_number": "hBP01-120",
+    "card_name": "がんも",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "鷹嶺ルイ",
+          "position": "center"
+        },
+        "effects": [
+          {
+            "trigger": "on_arts_used",
+            "effect": "draw_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-121": {
+    "card_number": "hBP01-121",
+    "card_name": "Kotori",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "text",
+        "description": "センターかコラボで受けるダメージ-10。"
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "小鳥遊キアラ"
+        },
+        "effects": [
+          {
+            "trigger": "on_bloom",
+            "effect": "draw_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD02-014": {
+    "card_number": "hSD02-014",
+    "card_name": "ぽよ余",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "百鬼あやめ"
+        },
+        "effects": [
+          {
+            "trigger": "on_bloom",
+            "effect": "draw_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD03-013": {
+    "card_number": "hSD03-013",
+    "card_name": "おかにゃん",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "text",
+        "description": "センターかコラボで受けるダメージ-10。"
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "猫又おかゆ"
+        },
+        "effects": [
+          {
+            "trigger": "on_archive_blue_cheer",
+            "effect": "can_archive_mascot_instead"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD04-014": {
+    "card_number": "hSD04-014",
+    "card_name": "しょこら",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "癒月ちょこ"
+        },
+        "effects": [
+          {
+            "trigger": "on_bloom",
+            "effect": "heal_20_self"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD05-014": {
+    "card_number": "hSD05-014",
+    "card_name": "ばんぺん",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "轟はじめ"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "hp+20"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD06-012": {
+    "card_number": "hSD06-012",
+    "card_name": "ぽこべぇ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "風真いろは"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "hp+20"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-089": {
+    "card_number": "hBP02-089",
+    "card_name": "おるやんけ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "白上フブキ"
+        },
+        "effects": [
+          {
+            "trigger": "on_collab",
+            "effect": "draw_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-090": {
+    "card_number": "hBP02-090",
+    "card_name": "ネジマキツネ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "白上フブキ"
+        },
+        "effects": [
+          {
+            "trigger": "on_down",
+            "effect": "transfer_1_cheer_to_other"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-091": {
+    "card_number": "hBP02-091",
+    "card_name": "フブチュン",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "白上フブキ"
+        },
+        "effects": [
+          {
+            "trigger": "on_collab",
+            "effect": "return_mascot_from_archive"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-092": {
+    "card_number": "hBP02-092",
+    "card_name": "フブラ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "白上フブキ"
+        },
+        "effects": [
+          {
+            "trigger": "main_step_activate",
+            "cost": "archive_2_cheer",
+            "effect": "arts+50_this_turn",
+            "per_turn": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-093": {
+    "card_number": "hBP02-093",
+    "card_name": "ミテイル",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "白上フブキ"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "position": "back",
+            "effect": "immune_opponent_damage"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-094": {
+    "card_number": "hBP02-094",
+    "card_name": "Tatang",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "パヴォリア・レイネ"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "hp+30"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-095": {
+    "card_number": "hBP02-095",
+    "card_name": "ドクロくん",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "宝鐘マリン",
+          "position": "center"
+        },
+        "effects": [
+          {
+            "trigger": "on_bloom",
+            "effect": "draw_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-096": {
+    "card_number": "hBP02-096",
+    "card_name": "イヌ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "沙花叉クロヱ"
+        },
+        "effects": [
+          {
+            "trigger": "on_down_opponent",
+            "effect": "send_archive_cheer_to_holox_holomen"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-097": {
+    "card_number": "hBP02-097",
+    "card_name": "UDIN",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "クレイジー・オリー"
+        },
+        "effects": [
+          {
+            "trigger": "on_bloom",
+            "effect": "draw_1_then_archive_hand_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-098": {
+    "card_number": "hBP02-098",
+    "card_name": "Death-sensei",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "森カリオペ"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "all_arts_cheer_colorless"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-098": {
+    "card_number": "hBP03-098",
+    "card_name": "金時",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "さくらみこ"
+        },
+        "effects": [
+          {
+            "trigger": "on_collab",
+            "effect": "draw_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-099": {
+    "card_number": "hBP03-099",
+    "card_name": "マグチ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "さくらみこ"
+        },
+        "effects": [
+          {
+            "trigger": "on_collab",
+            "effect": "arts+10_center_さくらみこ_this_turn"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-100": {
+    "card_number": "hBP03-100",
+    "card_name": "ペロ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen_in": [
+            "フワワ・アビスガード",
+            "モココ・アビスガード"
+          ]
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "all_arts_cheer_colorless"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-101": {
+    "card_number": "hBP03-101",
+    "card_name": "ビビ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "常闇トワ"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "special_damage_to_opponent+10"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-102": {
+    "card_number": "hBP03-102",
+    "card_name": "フトイヌ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "戌神ころね"
+        },
+        "effects": [
+          {
+            "trigger": "on_collab",
+            "effect": "send_archive_yellow_cheer_to_self"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-103": {
+    "card_number": "hBP03-103",
+    "card_name": "ホソイヌ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "戌神ころね"
+        },
+        "effects": [
+          {
+            "trigger": "on_down",
+            "cost": "archive_holo_power_1",
+            "effect": "return_mascot_to_hand"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-104": {
+    "card_number": "hBP03-104",
+    "card_name": "Riscot",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "アユンダ・リス"
+        },
+        "effects": [
+          {
+            "trigger": "on_collab",
+            "effect": "transfer_stage_cheer_to_self"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-100": {
+    "card_number": "hBP04-100",
+    "card_name": "ココロ",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "博衣こより"
+        },
+        "effects": [
+          {
+            "trigger": "on_collab",
+            "effect": "arts+10_this_turn"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-101": {
+    "card_number": "hBP04-101",
+    "card_name": "だいふく",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "雪花ラミィ"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "effect": "hp+20"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-102": {
+    "card_number": "hBP04-102",
+    "card_name": "やめなー",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "tag": "#5期生",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "position": "back",
+            "effect": "immune_opponent_damage"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-103": {
+    "card_number": "hBP04-103",
+    "card_name": "カラス",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "arts_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "ラプラス・ダークネス"
+        },
+        "effects": [
+          {
+            "trigger": "main_step_dice",
+            "position": "collab",
+            "effect": "on_odd_move_to_back",
+            "per_turn": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-104": {
+    "card_number": "hBP04-104",
+    "card_name": "スバルドダック",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "大空スバル"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "condition": "total_cheer_gte_10",
+            "effect": "arts+20"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP05-085": {
+    "card_number": "hBP05-085",
+    "card_name": "みこだにぇー",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "さくらみこ"
+        },
+        "effects": [
+          {
+            "trigger": "on_down_opponent_turn",
+            "effect": "opponent_archive_hand_1"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP05-086": {
+    "card_number": "hBP05-086",
+    "card_name": "Cilus",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "こぼ・かなえる"
+        },
+        "effects": [
+          {
+            "trigger": "on_opponent_back_down",
+            "position": "center",
+            "effect": "draw_1",
+            "per_turn": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP06-100": {
+    "card_number": "hBP06-100",
+    "card_name": "Chattino",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 10
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "ラオーラ・パンテーラ",
+          "bloom_gte": "1st"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "condition": "oshi_is_ラオーラ・パンテーラ",
+            "effect": "hp+20"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP06-101": {
+    "card_number": "hBP06-101",
+    "card_name": "ムーナびと",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "ムーナ・ホシノヴァ"
+        },
+        "effects": [
+          {
+            "trigger": "on_deal_special_damage",
+            "effect": "send_archive_blue_cheer_to_back",
+            "per_turn": 1
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP06-102": {
+    "card_number": "hBP06-102",
+    "card_name": "えびふらいおん",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "夏色まつり"
+        },
+        "effects": [
+          {
+            "trigger": "on_down_opponent_turn",
+            "effect": "transfer_yellow_cheer_to_other_夏色まつり"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD12-016": {
+    "card_number": "hSD12-016",
+    "card_name": "GEOW",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      },
+      {
+        "type": "text",
+        "description": "手札から1st以上の〈古石ビジュー〉に付けた時、ステージのエール1枚をアーカイブしてエールデッキからエール1枚をホロメンに送れる。"
+      }
+    ],
+    "triggered_effects": [],
+    "raw_text": ""
+  },
+  "hSD13-018": {
+    "card_number": "hSD13-018",
+    "card_name": "Popo",
+    "card_type": "サポート・マスコット",
+    "is_limited": false,
+    "attachment_type": "mascot",
+    "attachment_limit": 1,
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "hp_modifier",
+        "amount": 20
+      }
+    ],
+    "triggered_effects": [
+      {
+        "condition": {
+          "holomen": "ジジ・ムリン"
+        },
+        "effects": [
+          {
+            "trigger": "passive",
+            "condition": "stacked_cards_0",
+            "effect": "arts+20"
+          }
+        ]
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-122": {
+    "card_number": "hBP01-122",
+    "card_name": "ロゼ隊",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "アキ・ローゼンタール",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_down_opponent_turn",
+        "effect": "send_yell_deck_top_to_アキ・ローゼンタール"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-123": {
+    "card_number": "hBP01-123",
+    "card_name": "野うさぎ同盟",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "兎田ぺこら",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_dice_roll",
+        "cost": "archive_this_fan",
+        "effect": "reroll_all_dice"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-124": {
+    "card_number": "hBP01-124",
+    "card_name": "開拓者",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "AZKi",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_down_opponent_turn",
+        "effect": "transfer_1_cheer_to_other"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-125": {
+    "card_number": "hBP01-125",
+    "card_name": "KFP",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "小鳥遊キアラ",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_attach_from_hand",
+        "cost": "archive_hand_1",
+        "effect": "draw_1"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP01-126": {
+    "card_number": "hBP01-126",
+    "card_name": "座員",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "尾丸ポルカ",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_arts_use",
+        "effect": "treat_as_red_cheer"
+      },
+      {
+        "trigger": "passive",
+        "effect": "damage_received+10"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-099": {
+    "card_number": "hBP02-099",
+    "card_name": "すこん部",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "白上フブキ",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "text",
+        "description": "HP+10。"
+      }
+    ],
+    "triggered_effects": [],
+    "raw_text": ""
+  },
+  "hBP02-100": {
+    "card_number": "hBP02-100",
+    "card_name": "白銀聖騎士団",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "白銀ノエル",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "passive",
+        "effect": "damage_received-10"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-101": {
+    "card_number": "hBP02-101",
+    "card_name": "ミオファ",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "大神ミオ",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_down_opponent_turn",
+        "effect": "draw_1"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP02-102": {
+    "card_number": "hBP02-102",
+    "card_name": "塩っ子",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "紫咲シオン",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "passive",
+        "effect": "arts+10"
+      },
+      {
+        "trigger": "on_receive_damage",
+        "effect": "archive_this_fan"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-105": {
+    "card_number": "hBP03-105",
+    "card_name": "ルーナイト",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "姫森ルーナ",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_receive_damage_opponent_turn",
+        "cost": "archive_this_fan",
+        "effect": "damage_received-30"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-106": {
+    "card_number": "hBP03-106",
+    "card_name": "SSRB",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "獅白ぼたん",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_archive_cheer",
+        "effect": "can_archive_fan_instead"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-107": {
+    "card_number": "hBP03-107",
+    "card_name": "35P",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "さくらみこ",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_arts_use",
+        "effect": "treat_as_red_cheer"
+      },
+      {
+        "trigger": "on_down",
+        "effect": "opponent_draw_1"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-108": {
+    "card_number": "hBP03-108",
+    "card_name": "はあとん",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "赤井はあと",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_dice_roll",
+        "cost": "archive_this_fan",
+        "effect": "reroll_all_dice"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-109": {
+    "card_number": "hBP03-109",
+    "card_name": "Ruffians",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": [
+      "フワワ・アビスガード",
+      "モココ・アビスガード"
+    ],
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_down_opponent_turn",
+        "effect": "send_archive_blue_cheer_to_フワワ・アビスガード"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-110": {
+    "card_number": "hBP03-110",
+    "card_name": "ろぼさー",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "ロボ子さん",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_arts_use",
+        "effect": "treat_as_purple_cheer"
+      },
+      {
+        "trigger": "passive",
+        "effect": "arts-10"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-111": {
+    "card_number": "hBP03-111",
+    "card_name": "ころねすきー",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "戌神ころね",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "passive",
+        "effect": "baton_touch_cost-1"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-112": {
+    "card_number": "hBP03-112",
+    "card_name": "わためいと",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "角巻わため",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_down_opponent_turn",
+        "effect": "transfer_1-2_yellow_cheer_to_other_角巻わため"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP03-113": {
+    "card_number": "hBP03-113",
+    "card_name": "Risuners",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "アユンダ・リス",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_receive_cheer",
+        "effect": "arts+10_this_turn",
+        "per_turn": 1
+      }
+    ],
+    "raw_text": ""
+  },
+  "hSD03-014": {
+    "card_number": "hSD03-014",
+    "card_name": "おにぎりゃー",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "猫又おかゆ",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "text",
+        "description": "HP+10。"
+      }
+    ],
+    "triggered_effects": [],
+    "raw_text": ""
+  },
+  "hSD07-015": {
+    "card_number": "hSD07-015",
+    "card_name": "エルフレンド",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "不知火フレア",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [
+      {
+        "type": "text",
+        "description": "HP+10。"
+      }
+    ],
+    "triggered_effects": [],
+    "raw_text": ""
+  },
+  "hBP04-105": {
+    "card_number": "hBP04-105",
+    "card_name": "こよりの助手くん",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "博衣こより",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_attach_from_hand_or_archive",
+        "effect": "transfer_stage_cheer_to_this_holomen"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP04-106": {
+    "card_number": "hBP04-106",
+    "card_name": "雪民",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "雪花ラミィ",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "passive",
+        "effect": "special_damage_to_opponent_center+10"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP05-087": {
+    "card_number": "hBP05-087",
+    "card_name": "Jailbird",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "ネリッサ・レイヴンクロフト",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_down_opponent_turn",
+        "effect": "transfer_1_cheer_to_歌_holomen"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP06-103": {
+    "card_number": "hBP06-103",
+    "card_name": "まつりす",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "夏色まつり",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_dice_roll_by_oshi_or_1期生",
+        "cost": "archive_this_fan",
+        "effect": "treat_one_die_as_4"
+      }
+    ],
+    "raw_text": ""
+  },
+  "hBP06-104": {
+    "card_number": "hBP06-104",
+    "card_name": "スバ友",
+    "card_type": "サポート・ファン",
+    "is_limited": false,
+    "attachment_type": "fan",
+    "attachment_limit": null,
+    "attachment_target": "大空スバル",
+    "conditions": [],
+    "costs": [],
+    "actions": [],
+    "passive_effects": [],
+    "triggered_effects": [
+      {
+        "trigger": "on_down_opponent_turn",
+        "effect": "send_yell_deck_top_to_大空スバル"
+      }
+    ],
+    "raw_text": ""
+  }
+}

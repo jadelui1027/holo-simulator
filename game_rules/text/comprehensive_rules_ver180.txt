@@ -1,0 +1,2052 @@
+hololive OFFICIAL CARD GAME Comprehensive Rules, 
+Ver. 1.8.0 
+Last Updated: February 13, 2026  
+ 
+Table of Contents                         Pg 
+1. Game overview ........................................................... 1 
+2. Card information ......................................................... 2 
+3. Player information ....................................................... 3 
+4. Zones .......................................................................... 3 
+5. Key Notations ............................................................. 6 
+6. Game preparation ....................................................... 8 
+7. Game progression ...................................................... 9 
+8. Main phase actions ................................................... 10 
+9. Performance phase actions ...................................... 10 
+10. Playing and resolving cards and abilities ................ 11 
+11. Rules resolution ...................................................... 15 
+12. Oshi skill and Arts ................................................... 15 
+13. Keywords and keyword abilities .............................. 16 
+14. Miscellaneous ......................................................... 16 
+ 
+ 
+Rules 
+ 
+1. Game overview 
+1.1. Number of players 
+1.1.1. A standard game is played by two players. The 
+comprehensive rules do not currently support 
+games played by more than two players. 
+ 
+1.2. Game outcomes 
+1.2.1. The game concludes when a player loses. The 
+player who didn't lose is considered the winner. 
+1.2.1.1. If a player’s redraw count reaches a 
+specific number due to repeated mulligans, 
+that player is considered to have fulfilled a loss 
+condition (6.2.1.9.1). 
+1.2.1.2. If a player does not have any cards in their 
+life area, that player is considered to have 
+fulfilled a loss condition (11.2.1). 
+1.2.1.3. If a player does not have any holomem on 
+their stage, that player is considered to have 
+fulfilled a loss condition (11.2.2). 
+1.2.1.4. If a player is required to draw during their 
+draw phase, but does not have any cards 
+remaining in the deck, that player is considered 
+to have fulfilled a loss condition (7.3.2.1). 
+1.2.2. If all players lose simultaneously, the game 
+ends in a draw. 
+1.2.3. Players may concede at any point during the 
+game. When a player concedes, they lose the 
+game immediately, and the game concludes; 
+check timing (10.6.1) does not occur. 
+1.2.3.1. The act of conceding is not affected by any 
+card. A card effect cannot force a player to 
+concede, nor can a replacement effect replace 
+a loss resulting from concession. 
+1.2.4. A card may produce an effect that causes a 
+player to win or lose the game. In such cases, 
+the player wins or loses immediately when the 
+effect is processed, and the game concludes; 
+check timing (10.6.1) does not occur. 
+ 
+1.3. General rules 
+1.3.1. If card text should ever be contradicted by the 
+comprehensive rules, the card text takes 
+precedence. 
+1.3.2. If a player is required to execute an impossible 
+action for any reason, the action is not executed. 
+Similarly, if an effect requires a player to execute 
+multiple actions, part of which cannot be 
+executed, the player executes as many actions 
+as possible. 
+1.3.2.1. If anything is required to be put into a state 
+that it is already in, that action is not executed. 
+1.3.2.2. If an action is to be executed zero or a 
+negative number of times, or if an action is 
+based on zero or a negative value (aside from 
+adding, subtracting, or comparing), the action 
+is not executed at all. A negative value never 
+indicates an opposite action. 
+1.3.2.3. If multiple effects that require a player to 
+execute a certain action are produced 
+simultaneously, and it is not possible to 
+execute all of them, the player is required to 
+select and execute as many of the actions as 
+possible. 
+1.3.2.4. Numeric information possessed by players 
+or cards can be zero or a negative value, 
+unless an upper or lower limit is specified. 
+1.3.3. If a card's effect instructs a player to execute 
+an action that is simultaneously prohibited by 
+another active effect, the prohibiting effect takes 
+precedence. 
+1.3.4. If multiple players are required to make a 
+selection simultaneously while processing 
+effects, if it is before the start of the game, the 
+player going first selects first, and if it is during 
+the game, the player going first or turn player 
+selects first. The player going second or non-turn 
+player makes their selection after knowing what 
+the other player had selected. 
+1.3.4.1. If a certain effect applies to multiple 
+players, and that effect requires executing 
+multiple processes, each process that does not 
+involve selection is executed simultaneously, 
+while each process that does involve selection 
+is executed starting with the turn player. 
+1.3.4.2. If multiple players are required to select 
+cards from hidden zone at the same time, the 
+turn player will make their selections without 
+revealing the card information first. The non-
+turn player makes their selection after the turn 
+player has made their selection. Once all 
+selections have been done, both players will 
+reveal the information of their selected cards at 
+the same time. 
+1.3.5. When a number is to be selected, an integer 
+equal to or greater than zero must be selected. 
+Fractions, decimals and negative numbers may 
+not be selected. 
+1.3.5.1. If a numerical limit is specified (e.g., "up to 
+X"), the player may choose zero as long as a 
+minimum value isn't specified. 
+1.3.5.2. If the number is written as “(value A) ~ 
+(value B)”, they must choose a number that is 
+greater than or equal to (value A) and lower 
+than or equal to (value B). 
+ 
+ 2. Card information
+ 
+2.1. Card name 
+2.1.1. This is the card's unique name. 
+2.1.2. Whenever text contains "<Card Name>", it 
+refers to any card with the same name or, 
+depending on the context, any card whose 
+name contains that name. 
+ 
+2.2. Card type 
+2.2.1. The information about the type of a card. 
+2.2.2. Cards have one of either the “Oshi 
+holomem”, “holomem”, “support” or “cheer” 
+card type. 
+2.2.2.1. Cards without card type information but 
+have life (2.8) information are from the “Oshi 
+holomem” card type. 
+2.2.2.2. Cards without card type information but 
+have HP (2.9) information are from the 
+“holomem” card type. 
+2.2.3. Some cards have supplementary card types 
+on top of their existing types. 
+2.2.4. Some cards with supplementary card types 
+can be “attached” (5.17) to other cards. 
+ 
+2.3. Bloom level 
+2.3.1. This indicates the bloom stage of the card. 
+2.3.2. Bloom level is one of either four of the 
+following types. 
+2.4. Color 
+2.4.1. This indicates the color information that the 
+card is associated with. 
+2.4.2. In this game, color is displayed as the name 
+of the color, or by one of the following icons. 
+2.4.2.1. There is also a “Neutral” color in the color 
+information of this game, which refers to 
+colorless, or in the case for costs (10.5.2), it 
+refers to any color. 
+2.4.2.2. If an ability or effect references the 
+“color”, unless specified, the “Neutral” color is 
+not included, and is not counted as a color. 
+2.4.3. There may be cases where multiple colors 
+are displayed by one icon. In those cases, that 
+card is associated with all colors indicated by 
+the icon. 
+-Example: The icon on the right 
+indicates that the card is both white and 
+green. 
+ 
+2.4.4. If card A and card B are said to have “the 
+same color”, then both cards have at least one 
+common color associated with each of the 
+cards. 
+ 
+holomem 
+ 
+         
+① Card name 
+② Card type 
+③ Bloom level 
+④ Color 
+⑤ Buzz 
+⑥ Tag 
+⑦ Card text 
+⑧ Life 
+⑨ HP 
+⑩ Baton pass 
+⑪ Extra ability 
+⑫ Information on 
+LIMITED 
+⑬ Illustration 
+⑭ Collection data Oshi holomem 
+ 
+Support 
+ 
+Cheer 
+ 
+ 
+ 
+Debut 
+ 
+ 
+First 
+ 
+ 
+Second 
+ 
+ 
+Spot 
+ 
+White 
+ 
+Green 
+ 
+Red 
+ 
+Neutral 
+ 
+Blue 
+ 
+Purple 
+ 
+Yellow 
+ 
+
+2.5. Buzz 
+2.5.1. If a card has the word “Buzz” in this 
+position, it indicates that this card has the 
+“Buzz” information. 
+ 
+2.6. Tag 
+2.6.1. This indicates the tags that the card 
+possesses. 
+2.6.2. Tags have no direct significance regarding 
+the rules, but may be referenced by abilities or 
+effects. 
+ 
+2.7. Card text 
+2.7.1. The information about a card’s inherent 
+abilities. 
+2.7.2. Within the card text, there may be additional 
+text with a detailed explanation of the ability. 
+These texts are called “reminder texts”. 
+Reminder text is part of the text, but is only 
+present for explanatory purposes, and does not 
+affect the game. 
+2.7.2.1. The text on cheer cards is reminder text. 
+ 
+2.8. Life 
+2.8.1. This indicates the amount of life that the Oshi 
+holomem has. 
+ 
+2.9. HP 
+2.9.1. This indicates the amount of damage the 
+holomem is able to take before becoming 
+downed. 
+ 
+2.10. Baton pass 
+2.10.1. This indicates the number of cheers 
+required for this holomem to baton pass (8.7). 
+ 
+2.11. Extra ability 
+2.11.1. The information about a card’s special 
+abilities. 
+2.11.2. Based on the text, extra abilities will have 
+the following effects: 
+2.11.2.1. “You may include any number of this 
+holomem in the deck” is a continuous ability 
+with a replacement effect that modifies the 
+upper limit for number of copies of cards 
+during deck construction (6.1.4.3). 
+2.11.2.2. “If this holomem is downed, you get Life-
+2” is a continuous ability with a replacement 
+effect that modifies the Life damage(11.5.1) 
+taken when the holomem is downed. 
+2.11.2.3. “This holomem is also regarded as 
+〈Name〉” and “This tool is also regarded as 
+〈Name〉” is a continuous ability that 
+additionally gives the specified card 
+〈Name〉. 
+2.11.2.3.1. If there are multiple names listed, 
+the specified holomem will have all of the 
+names listed in addition to its printed name.  
+2.11.2.4. “This holomem cannot Bloom” is a 
+continuous ability that prevents the specified 
+holomem from Blooming (5.14). 
+ 
+2.12. Information on LIMITED 
+2.12.1. This information is related to the play of 
+cards (8.6.2). 
+ 
+2.13. Illustration 
+2.13.1. The illustration depicting the contents of the 
+card. 
+2.13.2. Illustrations have no significance regarding 
+the rules. 
+ 
+2.14. Collection data 
+2.14.1. The card’s collection number, artist’s name, 
+copyright, and other contents of the card with 
+no direct relation to gameplay that have not 
+been mentioned thus far are collectively called 
+the “collection data”. 
+2.14.2. The collection number may be referenced 
+during deck construction (6.1.4.3). 
+2.14.3. Other than the collection number, the 
+collection data is not part of the information of 
+the card and generally has no meaning in 
+terms of rules. 
+ 
+2.15. Information on cards 
+2.15.1. When rules or text reference “(information 
+found on a card)” card or “(information found 
+on a card)”, it refers to “cards that have that 
+information”. 
+- For example, “Support Card” refers to cards with the 
+card type “Support” 
+- For example, “Cheers in your archive” refers to cards 
+in your archive with card type “Cheer”. 
+ 
+3. Player information 
+ 
+3.1. Owner and controller 
+3.1.1. The "Owner" of a card is the player who 
+physically owns the card and started the game 
+with it in their deck. When the game ends, each 
+player returns the cards they own back into 
+their deck. 
+3.1.2. The "Controller" of a card, ability, or effect is 
+the player who is currently using it. The 
+controller of a card put in a given zone is the 
+player to whom that zone belongs. 
+3.1.2.1. A continuous ability's controller is the 
+player who controls the card with the ability 
+or effect that produced the ability. 
+3.1.2.2. An activated ability's controller is the 
+player who played it. 
+3.1.2.3. An automatic ability's controller is the 
+player who controls the card with the ability 
+or effect that produced the ability. 
+3.1.2.4. An effect's controller is the player who 
+controls the ability that produced it. 
+3.1.2.4.1. If an effect requires a player to 
+execute an action without specifying which 
+player, that effect's controller executes the 
+action. 
+ 
+3.2. Life damage 
+3.2.1. Each player has a value for life damage 
+assigned to them. 
+ 
+4. Zones 
+ 
+4.1. Zone basics 
+4.1.1. Each player has their own of each zone if not 
+specified. 
+4.1.2. There are zones where all players may see 
+the information of the cards in that zone, and 
+zones where they may not. Zones where the 
+information of the cards in that zone may be 
+seen by all players are “public zones”, and 
+zones where they may not be seen by one or 
+more players are called “hidden zones”. 
+4.1.2.1. When a card is placed in a public zone, it 
+is placed in the public state (4.2.2). When a 
+card is placed in a hidden zone, it is placed in 
+the hidden state (4.2.3). 
+4.1.2.2. All players may check the number of 
+cards in any zone at any time, regardless of 
+whether the zone is public or hidden. 
+4.1.2.3. When referring to cards with specific 
+conditions from a hidden zone, as long as 
+there are no additional effects revealing 
+cards in that zone to all players, there is no 
+guarantee that there are cards that fulfil 
+specified conditions. If a player is required to 
+reveal cards from a hidden zone, even if 
+there are cards in the zone that fulfil specified 
+conditions, they can choose to not reveal any 
+cards from that zone. 
+4.1.3. There are zones where the order cards are 
+placed in the zone is controlled. Unless 
+otherwise specified, players cannot change the 
+order of cards in a zone where the order is 
+controlled. 
+4.1.3.1. If the order is controlled, the order the in 
+which cards are stacked on each other is 
+controlled. 
+4.1.3.2. If new cards are to be placed in zones 
+where the order is controlled, the new cards 
+are placed on top of the existing cards in that 
+zone unless otherwise specified.  
+4.1.4. When a card is moved from a zone on the 
+stage (4.6) to another zone on the stage, it is 
+considered as the same card as the original 
+card, the state the card is in (e.g. resting or 
+non-resting) remains the same, and the effects 
+that applied to the original card continue to 
+apply. However, when executing a move from 
+a zone on the stage to a zone other than the 
+stage, unless otherwise specified, it is 
+considered a new card in the new zone. Effects 
+that applied in the previous zone do not 
+continue to apply. 
+4.1.4.1. When a single card effect moves a card 
+to another zone and executes an action on 
+the card in the zone it moved to, that effect 
+tracks the card after it has moved, and 
+executes the action. 
+4.1.5. When multiple cards are put into the same 
+zone simultaneously, the order in which the 
+cards are placed in the new zone is decided by 
+the player that zone belongs to unless 
+indicated otherwise. 
+4.1.5.1. When multiple cards are simultaneously 
+moved from a public zone to a hidden zone, if 
+the controller of those cards is able to 
+determine the order of their placement, they 
+do so without revealing the order to other 
+players. 
+4.1.6. When instructed to move a card to a given 
+zone, if the player that the zone belongs to is 
+not specified, the card is moved to its owner's 
+corresponding zone unless indicated 
+otherwise. 
+ 
+4.2. Zone visibility states 
+4.2.1. Cards in zones may be in the public state or 
+hidden state.  
+4.2.2. Information of cards in the public state can 
+be seen and referred to by all players. 
+4.2.2.1. Even if the zone is a public zone, during 
+the setting up of the game, some cards may 
+be placed face down temporarily, and 
+information on those cards are not public in 
+that state. 
+4.2.3. Cards in the hidden state are cards with 
+content or information that some or all players 
+cannot refer to. 
+ 
+4.3. Card placement states 
+4.3.1. Some zones may have card placement 
+states specified. The placement states are the 
+orientation state, and the facing state.  
+4.3.2. The orientation state refers to either “non-
+resting state” or “resting state”. Cards must be 
+in one of the two orientation states, and cannot 
+be in both or neither of the states. 
+4.3.2.1. Cards in the non-resting state are placed 
+vertically upright from its controller’s 
+viewpoint.  
+4.3.2.2. Cards in the resting state are placed 
+horizontally from its controller’s viewpoint. 
+4.3.2.3. Cards placed into zones where card 
+placement states are specified are placed in 
+the non-resting state unless otherwise 
+specified. 
+4.3.2.4. In card text, the non-resting state is 
+indicated as “non-resting”, and the resting 
+state is indicated as “resting”. 
+4.3.3. The facing state can either be “face up” or 
+“face down”. A card must be in one of the two 
+facing states, and cannot be in both or neither 
+of the states. 
+4.3.3.1. Cards in the face up state are placed 
+such that the face with the card information is 
+visible. 
+4.3.3.2. Cards in the face down state are placed 
+such that the face with the card information is 
+not visible. 
+ 
+4.4. holomem 
+4.4.1. When card effects refer to “holomem” placed 
+on the stage (4.6), it refers to the group of 
+cards called “holomem” according to the 
+following rules. 
+4.4.2. “One holomem” refers to all cards with card 
+type holomem stacked on each other in a 
+single pile. 
+4.4.2.1. When referencing information of that 
+holomem, generally only the topmost 
+holomem card in that stack is referenced.  
+4.4.2.1.1. Although there may be cases where 
+the topmost card has multiple names, or 
+has illustrations featuring multiple 
+characters, the game still considers all 
+cards in that same stack to be one 
+holomem.  
+4.4.2.2. Other holomem cards beside the topmost 
+card in the stack are not considered to be 
+holomem cards on the stage unless 
+otherwise referred to or specified as such. 
+4.4.2.3. The order the holomem cards are 
+stacked in, retains the original order of 
+stacking unless there is clear instruction to 
+change the order. 
+4.4.3. Cards with the “Support” or “Cheer” card 
+types may be “attached” (5.17) to holomem.  
+4.4.4. Whenever a holomem is moved from any 
+zone on the stage (4.6) to another zone on the 
+stage, move all holomem cards that make up 
+that holomem in the stack, and all cards with 
+the “Support” or “Cheer” card types attached to 
+that holomem, to the new zone without 
+changing the order and contents of cards in the 
+stack. 
+4.4.5. holomem inherently hold numerical 
+information of the amount of damage they have 
+taken. 
+4.4.5.1. holomem have a value of 0 damage 
+taken when newly placed on the stage. 
+4.4.5.2. Whenever a holomem takes damage, the 
+amount of damage taken is added to the 
+value of damage that holomem has taken. 
+4.4.5.3. When the total amount of damage a 
+holomem has taken is equal to or greater 
+than its HP, that holomem becomes downed 
+(11.3). 
+4.4.5.4. When referring to the “HP” of a holomem, 
+it refers to the HP value of the card 
+information on that holomem, subtracting any 
+numerical information of damage taken by 
+that holomem. 
+4.4.6. Some zones have an upper limit for the 
+number of holomem in that zone. 
+4.4.6.1. When holomem are moved into a zone 
+with an upper limit for holomem, and that 
+movement brings the total number of 
+holomem in that zone above the limit, the 
+controller of the zone that the holomem are 
+being moved into will subtract the number of 
+holomem currently in that zone from the limit 
+of that zone, and choose the same number of 
+holomem from among the holomem being 
+moved into that zone, and move only the 
+chosen holomem into that zone. All other 
+holomem will remain in their original zones. 
+4.4.7. When a holomem on the stage is moved to 
+another zone that is not on the stage, move the 
+topmost holomem card in the stack to the 
+specified zone, and archive (5.12) the rest of 
+the cards in the stack. 
+4.4.8. When referring to “holomem that are stacked 
+to this holomem”, it refers to cards with card 
+type holomem stacked under the topmost card 
+in that stack. 
+4.4.9. It is possible for a holomem to be “downed” 
+by effects. When a holomem is downed by 
+effects, proceed with resolving downed 
+holomem (11.3) regardless of its HP or 
+damage taken. 
+  
+4.5. Oshi position 
+4.5.1. The zone for each player to place their Oshi 
+holomem.  
+4.5.2. The Oshi position is a public zone. 
+ 
+4.6. Stage 
+4.6.1. This zone consists of the 3 following zones: 
+center position, collab position and back 
+position. 
+4.6.2. Each player has a maximum limit for the 
+number of holomem they can have on the 
+stage. 
+4.6.2.1. At the start of the game, each stage has 
+a maximum limit of 6 total holomem. 
+ 
+4.7. Center position 
+4.7.1. An important zone for the game where the 
+holomem that performs Arts is placed. 
+4.7.2. The center position is a public zone. 
+4.7.3. The maximum limit for the number of 
+holomem in the center position is 1. 
+4.7.4. holomem placed in the center position are 
+also referred to as the center holomem. 
+ 
+4.8. Collab position 
+4.8.1. The zone to place holomem that collabs with 
+the center holomem during the game. 
+4.8.2. The collab position is a public zone. 
+4.8.3. The maximum limit for the number of 
+holomem in the collab position is 1. 
+4.8.4. holomem placed in the collab position are 
+also referred to as collab holomem. 
+ 
+4.9. Back position 
+4.9.1. The zone to put holomem that are not in the 
+center position or collab position. 
+4.9.2. The back position is a public zone. 
+4.9.3. holomem placed in the back position are also 
+referred to as back holomem. 
+ 
+4.10. Life area 
+4.10.1. The zone that indicates the number of life 
+remaining for the player. 
+4.10.2. The life area is a hidden zone that both 
+players cannot check the information of, and 
+the order of cards is controlled. 
+ 
+4.11. Deck area 
+4.11.1. The zone that the player places their deck 
+in at the beginning of a game.  
+4.11.2. The deck area is a hidden zone that both 
+players cannot check the information of, and 
+the order of the cards is controlled.  
+4.11.3. When a card effect refers to “deck”, it refers 
+to all cards in that player’s deck area.   
+ 
+4.12. Cheer deck area 
+4.12.1. The zone that the player places their cheer 
+deck in at the beginning of a game.  
+4.12.2. The cheer deck area is a hidden zone that 
+both players cannot check the information of, 
+and the order of cards is controlled. 
+ 
+4.13. Hand 
+4.13.1. The zone where each player places their 
+unused cards without letting the opponent see 
+them. 
+4.13.2. The hand is a hidden zone, but players can 
+see information of cards in their own hand. The 
+order of cards in the hand is not controlled. 
+4.13.3. When “X cards in hand” is used in card text, 
+it refers to the number of cards in the hand, 
+where X is the numerical value. 
+4.13.4. There is no limit to the number of cards in 
+hand. 
+ 
+4.14. Archive 
+4.14.1. The zone where each player places the 
+cards that have been used.  
+4.14.2. The archive is a public zone, and the order 
+of cards is not controlled. 
+ 
+4.15. holo Power area 
+4.15.1. The zone that each player places their holo 
+Power cards into. 
+4.15.2. The holo Power area is a hidden zone, and 
+the order of cards is controlled. 
+ 
+4.16. Resolution zone 
+4.16.1. A zone for cards and abilities to be placed 
+temporarily during the game. There is 1 
+resolution zone shared by both players. 
+4.16.2. The resolution zone is a public zone, and 
+the order of cards is controlled. When cards 
+are placed in this zone, the cards are placed on 
+top of pre-existing cards in this zone. 
+ 
+5. Key Notations 
+ 
+5.1. Overview 
+5.1.1. Key notations are terms used in the game 
+that hold special meaning or express a certain 
+action, direction or state. 
+ 
+5.2. Non-resting/Resting 
+5.2.1. If instructed to place a card in “non-resting” 
+state or “resting” state, it will be placed in the 
+corresponding “non-resting” or “resting” 
+orientation. 
+ 
+5.3. Face up/Face down 
+5.3.1. If instructed to place a card “face up” or “face 
+down”, it will be placed in the corresponding 
+“face up” or “face down” state. 
+ 
+5.4. Down/downed 
+5.4.1. If a holomem on the stage is “down”, that 
+holomem will be placed in the downed state. 
+ 
+5.5. Place/Return (to zone) 
+5.5.1. If instructed to “place” a card in a specified 
+zone, or to “return” a card to a specified zone, 
+move that card to the specified zone. 
+ 
+5.6. Shuffle 
+5.6.1. If instructed to “shuffle” the deck area, the 
+owner of the specified zone must randomize 
+the order of cards.  
+5.6.1.1. If there is 0 or 1 card in a zone, and that 
+player is instructed to shuffle, there will be no 
+change to the order of cards in the deck, but 
+it will still be considered to have been 
+shuffled. 
+ 
+5.7. Draw 
+5.7.1. If instructed to "draw 1 card", the specified 
+player will take the topmost card of their deck 
+area, and move it to their hand.  
+5.7.2. If instructed to “draw X cards”, the specified 
+player will repeat “draw 1 card” X times. 
+5.7.3. If instructed to “draw up to X cards”, the 
+specified player will execute the following in 
+order. 
+5.7.3.1. If the specified number of times is 0, this 
+instruction ends. 
+5.7.3.2. The specified player may choose to end 
+the action. 
+5.7.3.3. The specified player draws 1 card from 
+the specified deck. 
+5.7.3.4. If the number of times 5.7.3.3 has been 
+executed for this instruction has reached (X) 
+times, the execution of this instruction ends. 
+If it has not, return to 5.7.3.2. 
+ 
+5.8. Look 
+5.8.1. If instructed to "look" at a specified player’s 
+hidden zone, look at all information of all cards 
+in that specific zone.  
+ 
+5.9. Look from the top 
+5.9.1. If instructed to “look at top X cards” of the 
+deck area, the specified player can look at 
+information of the top X cards on the deck 
+area. 
+5.9.2. If instructed to “look at up to top X of the 
+deck, the specified player will execute the 
+following in order. 
+5.9.2.1. If X is 0 or lower, this instruction ends. 
+5.9.2.2. Declare 1 as the value for number of 
+cards to be looked at. 
+5.9.2.3. The specified player can end the 
+instruction here. 
+5.9.2.4. The specified player looks at the top N 
+cards as declared in 5.9.2.2. 
+5.9.2.5. If the number of times 5.9.2.4 has been 
+executed for this instruction has reached (X) 
+times, the execution of this instruction ends. 
+If it has not, return to 5.9.2.3. 
+ 
+5.10. Switch 
+5.10.1. If instructed to “switch” a card with another 
+card, move the former card to the latter card’s 
+zone, and move the latter card into the former 
+card’s zone at the same time. 
+5.10.2. If, for any reason, one of the cards specified 
+to be switched cannot move to the zone of the 
+other card, the switch is not executed. 
+ 
+5.11. Reveal 
+5.11.1. If instructed to “reveal” a card not in the 
+deck area, the information on that card 
+becomes visible to all players 
+5.11.2. If instructed to “reveal” (card information or 
+number of cards) from the deck area, select 
+cards from the deck area that meet the 
+specified criteria, and reveal those cards. 
+ 
+5.12. Archive 
+5.12.1. If instructed to “archive” a card, move the 
+specified card to the archive. 
+ 
+5.13. Place 
+5.13.1. If instructed to “place” a card to a specified 
+zone via an effect, move that card to the 
+specified zone. 
+ 
+5.14. Bloom 
+5.14.1. If instructed to “bloom” a holomem to a 
+specified holomem, place that specified 
+holomem card on top of the stack of holomem 
+as the top most card.  
+5.14.1.1. From this point on, the newly placed 
+card will be the topmost card of that 
+holomem.  
+5.14.2. When a new card is placed on top of the 
+stack by bloom, that holomem is considered to 
+be the same holomem that it was stacked onto. 
+All effects applied to and all damage taken by 
+that holomem will remain associated with the 
+holomem that bloomed. 
+5.14.3. By executing a bloom, all text on the 
+holomem card that was previously topmost on 
+the stack is nullified, and the holomem gains 
+the text on the newly placed holomem card. 
+Any other information that was previously 
+associated with the holomem card that was 
+previously topmost on the stack will now be 
+associated with the newly placed holomem 
+card 
+5.14.3.1. Even if the newly placed holomem card 
+has the same text or abilities as the previous 
+holomem card, it is considered to be a new 
+instance. Rules and effects applied to the 
+previous text or abilities are not applied to the 
+new text or abilities. 
+5.14.3.1.1. If the new abilities have a usage 
+limitation, any usage count for the previous 
+abilities will not be applied to the new 
+abilities. 
+ 
+5.15. Return to Debut holomem 
+5.15.1. If instructed to “return (a specified 
+holomem) to Debut holomem”, execute the 
+following in order. 
+5.15.1.1. If the bottommost holomem card of that 
+stack is not a holomem card with bloom level 
+Debut, or if the topmost card of that holomem 
+is a holomem card with bloom level Debut, no 
+actions are executed. 
+5.15.1.2. Reduce the numerical information of 
+damage on that holomem to 0. 
+5.15.1.3. Choose 1 holomem with bloom level 
+Debut from that stack, then return all 
+holomem cards in that stack that are not the 
+specified Debut holomem and all cards 
+attached to that holomem that are not cheer 
+cards to the owner’s hand. 
+ 
+5.16. Collab 
+5.16.1. If instructed to “collab” with a specified 
+holomem, move that specified holomem to the 
+collab position, 
+ 
+5.17. Attach/To attach/Reattach 
+5.17.1. When a card is “attached” to a holomem, 
+that card is in the same zone as the specified 
+holomem, and is considered to be in a linked 
+state with the specified holomem. 
+5.17.2. If instructed “to attach” a card to a specified 
+holomem, that card will be placed in the same 
+zone as the specified holomem, and will be 
+considered to be in a linked state with the 
+specified holomem. 
+5.17.3. A portion of cards have a limit on the 
+number that can be attached to a holomem. 
+5.17.3.1. All support card type “tool” has a 
+combined total limit where only 1 support 
+card type “tool” can be attached to a 
+holomem. 
+5.17.3.2. All support card type “mascot” has a 
+combined total limit where only 1 support 
+card type “mascot” can be attached to a 
+holomem. 
+5.17.3.3. A portion of cards have the limit that can 
+be attached set by continuous effects. 
+5.17.3.4. When resolving the attachment of a card 
+to holomem, if this resolution brings the 
+number of cards attached to the specified 
+holomem to be above the limit, the resolution 
+does not proceed, and the card that would 
+have been attached will remain in its original 
+zone. 
+5.17.3.4.1. When multiple cards are attached at 
+the same time, if attaching all of the cards 
+brings the number of cards attached to the 
+specified holomem to be above the limit, 
+select as many cards that can be attached 
+within the limit, and attach those cards only. 
+All other cards that did not get attached will 
+remain in its original zone. 
+5.17.3.4.2. If there are any cards in the 
+resolution zone that did not get attached, 
+they will be moved into the archive. 
+5.17.4. If instructed to “reattach” a card on any 
+holomem that is on the stage, execute the 
+following in order. 
+5.17.4.1. If the holomem the card is currently 
+attached to is the same holomem as the 
+target to reattach to, no actions are executed. 
+5.17.4.2. If the holomem the card is currently 
+attached to is a different holomem than the 
+target to reattach to, remove the linked state 
+of the card with the current holomem, and 
+attach the card to the specified target 
+holomem. 
+ 
+5.18. Swap 
+5.18.1. If instructed to "swap" the center holomem 
+or collab holomem with a back holomem from 
+the same controller, swap the positions of both 
+holomem. 
+ 
+5.19. Additional ability 
+5.19.1. When a card has “Additional ability (ability)”, 
+the specified card will have (ability). 
+ 
+5.20. Ability Shift 
+5.20.1. “(Condition), you may Ability Shift. [(Usage 
+Limitation)](Text)” indicates that “If (Condition) 
+is fulfilled, you may change the text of this card 
+to (Text). This change can only be resolved if 
+the number of times cards with the same card 
+name as this card have had their text changed 
+by Ability Shift has not yet reached (Usage 
+Limitation).” 
+ 
+5.21. Send (a cheer) 
+5.21.1. If instructed to send a cheer card to a 
+specified holomem, attach that cheer card to 
+the specified holomem. 
+ 
+5.22. Deal/Take damage 
+5.22.1. If instructed to “deal (number) damage” to a 
+specified holomem, or “(number) damage”, 
+increase the numerical information of damage 
+on that holomem by (number). 
+5.22.2. If a specified holomem is instructed to “take 
+damage”, it means that the specified holomem 
+has been dealt damage. 
+ 
+5.23. Restore 
+5.23.1. If instructed to “restore (number) HP” to a 
+specified holomem, reduce the numerical 
+information of damage on the specified 
+holomem by (number). 
+5.23.1.1. If the numerical information of damage 
+on the specified holomem goes below 0 due 
+to this, the numerical information of damage 
+on the specified holomem becomes 0. 
+5.23.2. If instructed to “restore all HP” to a specified 
+holomem, the numerical information of damage 
+on the specified holomem is set to 0. 
+ 
+5.24. Roll a die 
+5.24.1. If instructed to “roll a die”, roll a regular, 
+unbiased 6 sided die, and the remainder of the 
+text will reference the resulting face value of 
+the die. 
+5.24.2. If the effect has “You may roll a die: (ability 
+text)”, when the controller resolves this effect, 
+the controller may choose to roll a die. If they 
+did so, resolve the (ability text). 
+ 
+5.25. Use (this Arts) once more 
+5.25.1. If instructed to “use (this Arts) once more”, it 
+creates a time-limited automatic ability that 
+reads “if there are no other pending rule 
+actions or automatic abilities, perform this Arts 
+one more time”. 
+ 
+5.26. Reroll  
+5.26.1. After a die is rolled, if instructed to “reroll”, 
+when resolving the effect to reference the face 
+value of the die, the player may ignore the 
+result of that roll, and instead roll the die one 
+more time. Then, the face value of the current 
+roll will be used as part of a replacement effect 
+for rerolling the die. 
+ 
+6. Game preparation 
+ 
+6.1. Preparing the decks 
+6.1.1. Before the game, each player must prepare 
+their cards. 
+6.1.1.1. A game deck consists of 3 groups of 
+cards: namely an Oshi holomem, a cheer 
+deck, and a deck. 
+6.1.2. In the game deck, one card with Oshi 
+holomem card type must be included. Each 
+player may only have one Oshi holomem card. 
+6.1.3. In the game deck, each player must prepare 
+their own cheer deck. 
+6.1.3.1. A cheer deck may only include cards with 
+the cheer card type.  
+6.1.3.2. The cheer deck must contain exactly 20 
+cards. 
+6.1.3.3. The cheer deck may contain any number 
+of cards with the same card number. 
+6.1.4. In the game deck, each player must prepare 
+their own deck. 
+6.1.4.1. A deck can only consist of cards that are 
+not Oshi holomem or cheer card types. All 
+other card types can be included in the deck. 
+6.1.4.2. The deck must contain exactly 50 cards. 
+6.1.4.3. The deck can only contain up to 4 copies 
+of each card with the same card number. 
+6.1.5. There are continuous effects that replace the 
+card limitation rule stated above. Once the 
+game begins, those abilities become inactive 
+(10.3.2). 
+ 
+6.2. Before starting a game 
+6.2.1. Before starting a game, each player does the 
+following in order: 
+6.2.1.1. Each player presents the game deck they 
+will be using during the game. 
+6.2.1.2. Each player places their deck in the deck 
+area and shuffles their own deck. 
+6.2.1.3. Each player places their cheer deck in 
+the cheer deck area, and shuffles their own 
+cheer deck. 
+6.2.1.4. Each player places their Oshi holomem 
+face up state in the Oshi holomem position. 
+6.2.1.5. Randomly decide on a player, and that 
+specified player will decide which player goes 
+first and which player goes second. 
+6.2.1.6. Each player draws 7 cards from the top of 
+their decks into their hand. 
+6.2.1.7. Starting from the player going first, each 
+player may choose to shuffle all the cards in 
+their hand back into the deck, and draw 7 
+cards from the top of their deck. 
+6.2.1.7.1. This resolution can only happen once 
+for each player per game. 
+6.2.1.8. Each player sets their redraw count as 0. 
+6.2.1.9. Starting from the player going first, if a 
+player does not have any holomem cards 
+with bloom level Debut in their hand, that 
+player reveals all cards in their hand. 
+6.2.1.9.1. If the player that revealed their hand 
+has a redraw count of 6 at this point, that 
+player loses the game. 
+6.2.1.9.2. The player that revealed their hand 
+shuffles all the cards in their hand back into 
+the deck, and draws 7 cards from the top of 
+their deck. 
+6.2.1.9.2.1. Players that executed these steps 
+increases their redraw count by 1. 
+6.2.1.9.3. If there are any players that revealed 
+cards in their hand at this point, return to 
+5.9.2.4. 
+6.2.1.10. Starting from the player going first, each 
+player will prepare their own stage. 
+6.2.1.10.1. Each player chooses a holomem 
+card with bloom level Debut from their 
+hand, and places it in the face down state 
+in their own center position. 
+6.2.1.10.2. If a player’s redraw count is 1 or 
+more, that player chooses a number of 
+cards from their hand equal to their redraw 
+count, and puts those cards on the bottom 
+of their deck in any order. 
+6.2.1.10.3. Players may put up to a total of 5 
+holomem cards with bloom level Debut or 
+Spot cards onto their back position in the 
+face down state. 
+6.2.1.11. Each player will take cards from the top 
+of their cheer deck equal to the number of life 
+their respective Oshi holomem has, and 
+places those cheer cards in their own life 
+area in face down state. 
+6.2.1.12. Each player will put all the cards on their 
+center position and back position in the face 
+down state to the face up state at the same 
+time. 
+6.2.1.13. The player going first will become the 
+turn player, and the game begins. 
+ 
+7. Game progression 
+ 
+7.1. Overview 
+7.1.1. The game progresses by repeating steps, or 
+"turns," taken by each player alternately. 
+During a player's turn, that player is considered 
+the "turn player," and the other player is 
+considered the "non-turn player." 
+7.1.2. The turn player proceeds through each of the 
+phases described in 7.2–7.7 in order. 
+ 
+7.2. Reset phase 
+7.2.1. If it is the first turn of the turn player for the 
+game, the reset phase is skipped, and the 
+game will proceed to draw phase (7.3) 
+immediately. 
+7.2.2. The turn player sets all cards on their stage 
+to non-resting state.  
+7.2.3. If the turn player has a holomem in the collab 
+position, that holomem is moved to their back 
+row, and put to resting state.  
+7.2.4. Abilities with condition “At the start of the 
+turn” or “At the start of reset phase” trigger. If it 
+is the first turn of the game, abilities with 
+condition “At the start of the game” trigger.  
+7.2.5. Resolve a check timing.  
+7.2.6. If the turn player does not have any holomem 
+in the center position, and they have non-
+resting holomem in the back position, they 
+move one of those holomem to the center 
+position. If there are only resting holomem in 
+the back position, they move one of those 
+holomem to the center position instead. 
+7.2.7. Resolve a check timing. After all the 
+processes for that check timing have been 
+completed, advance to the draw phase. 
+ 
+7.3. Draw phase 
+7.3.1. Abilities with condition “At the start of draw 
+phase” trigger, and resolve a check timing. 
+7.3.2. The turn player draws 1 card. 
+7.3.2.1. If, at this point, there are no cards in the 
+turn player’s deck area, and the player 
+cannot draw any cards, the turn player loses 
+the game. 
+7.3.3. Resolve a check timing. After all the 
+processes for that check timing have been 
+completed, advance to the cheer phase. 
+ 
+7.4. Cheer phase 
+7.4.1. Abilities with condition “At the start of the 
+cheer phase” trigger, and resolve a check 
+timing. 
+7.4.2. The turn player reveals the top card of their 
+cheer deck, and sends it to one of their 
+holomem on the stage. 
+7.4.3. Resolve a check timing. After all the 
+processes for that check timing have been 
+completed, advance to the main phase. 
+ 
+7.5. Main phase 
+7.5.1. Abilities with condition “At the start of the 
+main phase” trigger, and resolve a check 
+timing. 
+7.5.2. The turn player receives play timing. During 
+this play timing, players may take [Main phase 
+actions] (8.1) listed in a later section. 
+7.5.3. Resolve a check timing. After all the 
+processes for that check timing have been 
+completed, advance to the performance phase. 
+ 
+7.6. Performance phase 
+7.6.1. If it is the first turn of the first player, this 
+phase is skipped, and the turn player will move 
+into the end phase immediately. 
+7.6.2. The turn player receives play timing. During 
+this play timing, players may take [Performance 
+phase actions] (9.1) listed in a later section. 
+7.6.3. Resolve a check timing. After all the 
+processes for that check timing have been 
+completed, advance to the end phase. 
+ 
+7.7. End phase 
+7.7.1. Abilities with condition “At the end of the turn” 
+that have not triggered in that turn will trigger. 
+7.7.2. Resolve a check timing. After all processes 
+for that check timing have been completed, all 
+“until end of turn” effects and all “during this 
+turn” effects will be removed. 
+7.7.3. If the turn player does not have a holomem in 
+the center position, execute the following. 
+7.7.3.1. If the turn player has a holomem in non-
+resting state at the back position, they 
+choose one of them, and move that holomem 
+to the center position. 
+7.7.3.2. If the turn player only has holomem in 
+resting state at the back position, they 
+choose one of them, and move that holomem 
+to the center position. 
+7.7.3.3. If the turn player does not have any 
+holomem in the back position, and has a 
+holomem in the collab position, no holomem 
+will be moved, and the center position will 
+remain empty. 
+7.7.4. At this point, if there are no automatic 
+abilities standing by, no rule actions to resolve, 
+and no cards with automatic abilities with “at 
+the end of the turn” trigger conditions that have 
+not become standby during this end phase, the 
+turn ends, and the opponent of the current turn 
+player will become the turn player to start the 
+next turn. Otherwise, return to 7.7.1.  
+ 
+8. Main phase actions 
+ 
+8.1. Overview 
+8.1.1. This section provides details about the 
+actions the turn player may execute during 
+their main phase, starting from section 8.2. 
+8.1.2. These actions are executed during the play 
+timing of the main phase, and a check timing 
+will be resolved after each action is done. 
+8.1.3. If any part of an action cannot be executed to 
+completion, then that action cannot be selected 
+or executed. 
+ 
+8.2. Playing holomem from hand onto the stage 
+8.2.1. If the limit of holomem on the stage is not yet 
+reached, the turn player may choose to play a 
+holomem with bloom level Debut or a Spot 
+holomem from their hand onto the back 
+position of the stage in face up state. 
+8.2.2. Players cannot choose to play holomem 
+cards with bloom level 1st or bloom level 2nd 
+onto the stage with this action.  
+ 
+8.3. Bloom holomem 
+8.3.1. If it is the turn player’s first turn of the game, 
+that player cannot choose to execute this 
+action. 
+8.3.2. The turn player chooses one of their 
+holomem on stage. The chosen holomem must 
+meet the following conditions: 
+● The bloom level is not Spot. 
+● The holomem was not placed from a 
+zone other than the stage onto the 
+stage this turn. 
+● The holomem has not bloomed this 
+turn. 
+8.3.3. The turn player reveals 1 holomem card from 
+their hand. The revealed card must meet the 
+following conditions 
+● The revealed holomem must have the 
+same card name as the holomem 
+chosen in 8.3.2. 
+● If the bloom level of the revealed card 
+is 1st, the holomem chosen in 8.3.2 
+must have a bloom level of Debut or 
+1st. If the bloom level of the revealed 
+card is 2nd, the holomem chosen in 
+8.3.2 must have a bloom level of 1st or 
+2nd. 
+● The HP of the revealed card must not 
+be lower than the numerical 
+information for damage on the 
+holomem chosen in 8.3.2. 
+8.3.4. Bloom the chosen holomem with the 
+revealed card (5.14). 
+ 
+8.4. Collab with a holomem in the back position 
+8.4.1. If the turn player has a holomem in the collab 
+position, or if this action has already been 
+executed this turn, then the player cannot 
+choose to execute this action again. 
+8.4.2. The turn player can choose one non-resting 
+back position holomem. 
+8.4.3. If the turn player has cards in their deck, they 
+put the top card of their deck into the holo 
+Power area. 
+8.4.4. Move the holomem chosen in 8.4.2 into the 
+collab position to collab (5.16). 
+ 
+8.5. Oshi skill and SP Oshi skill 
+8.5.1. The turn player can choose one Oshi skill or 
+SP Oshi skill on their Oshi holomem, pay the 
+cost as specified by the Oshi skill, and resolve 
+the chosen Oshi skill. 
+8.5.1.1. If an Oshi skill has been resolved this 
+turn, the turn player cannot choose to resolve 
+an Oshi skill again this turn. 
+8.5.1.2. If a SP Oshi skill has been resolved this 
+game, the turn player cannot choose to 
+resolve a SP Oshi skill again this game. 
+ 
+8.6. Play support cards 
+8.6.1. The turn player can choose a card with card 
+type support from their hand, and play that 
+card. 
+8.6.2. If a card with LIMITED (2.12) has been 
+played this turn, or if it is the first turn of the first 
+player, then cards with LIMITED cannot be 
+chosen. 
+ 
+8.7. Perform a baton pass 
+8.7.1. The turn player can choose a non-resting 
+back position holomem. 
+8.7.2. From among the cheers attached to a non-
+resting center holomem, archive the specified 
+combination of color and quantity of cheers 
+equal to the baton pass of that holomem. 
+8.7.3. Swap the positions of the chosen back 
+holomem and the center holomem. 
+8.7.4. During this turn, if baton pass was executed 
+as a main phase action, the turn player cannot 
+choose to execute it again. 
+ 
+9. Performance phase actions 
+ 
+9.1. Overview 
+9.1.1. During the performance phase, the turn 
+player may choose their center holomem or 
+collab holomem to perform up to one Arts each 
+in any order, to deal damage to the opponent’s 
+holomem. 
+9.1.2. An Arts can only be played during the play 
+timing of the performance phase, and a check 
+timing will be resolved if an Arts is chosen to be 
+played. 
+ 
+ 
+9.2. Playing and resolving an Arts 
+9.2.1. The turn player chooses one of their center 
+holomem or collab holomem. 
+9.2.1.1. holomem without an Arts that can be 
+played cannot be chosen. 
+9.2.1.2. Resting holomem cannot be chosen. 
+9.2.1.3. If the center holomem has performed an 
+Arts this performance phase, it cannot be 
+chosen. 
+9.2.1.4. If the collab holomem has performed an 
+Arts this performance phase, it cannot be 
+chosen. 
+9.2.1.5. holomem that have performed an Arts 
+this performance phase cannot be chosen. 
+9.2.2. Choose one of the Arts on the chosen 
+holomem, and play it (12.3.3). 
+ 
+10. Playing and resolving cards and abilities 
+ 
+10.1. Types of abilities 
+10.1.1. Abilities are divided into 3 types: activated 
+abilities, automatic abilities, and continuous 
+abilities. 
+10.1.1.1. An activated ability is an ability that a 
+player may actively play during a play timing 
+received by the player by paying the cost. 
+10.1.1.1.1. In card text, activated abilities are 
+written in the form "[(condition)][cost]: 
+[effect]." The “condition” represents the 
+restriction that needs to be met for the 
+ability to be played, the "cost" represents 
+what must be paid to play the ability, and 
+the "effect" represents the effect produced 
+when the activated ability is resolved. 
+10.1.1.2. An automatic ability is an ability that is 
+played automatically when the indicated 
+event occurs during the game. 
+10.1.1.2.1. In card text, automatic abilities are 
+generally written in the form "when(ever) 
+[event], [effect]" or "at the start of [event], 
+[effect]" or “"at the end of [event], [effect]. 
+The condition in this case is called a 
+"trigger condition." When an automatic 
+ability's trigger condition is satisfied, it is 
+said to have been "triggered." 
+10.1.1.2.2. Some automatic abilities are written 
+in the form "when(ever) [event], [cost]: 
+[effect]" or "at the start of [event], [cost]: 
+[effect]" or "at the end of [event], [cost]: 
+[effect]."  In this case, the indicated cost 
+must be paid in order to play the automatic 
+ability. 
+10.1.1.2.3. “If… downed” is not an automatic 
+ability, and is an action executed when 
+resolving “down”. 
+10.1.1.3. A continuous ability is an ability that 
+produces an effect as long as the ability is 
+valid. 
+10.1.1.3.1. An ability that is written in the form 
+“[effect]” is generally a continuous ability. 
+10.1.2. The text on a support card is the ability of 
+the support card. 
+10.1.3. Some abilities may have ability names. 
+10.1.3.1. If any abilities or effects references the 
+ability names, it will reference all abilities with 
+that ability name. 
+ 
+10.2. Types of effects 
+10.2.1. Effects are divided into three types: one-
+shot effects, continuous effects, and 
+replacement effects. 
+10.2.1.1. A one-shot effect is an effect that ends 
+after all the indicated actions have been 
+executed during its resolution. If there are 
+abilities with text such as “Draw 1 card”, or 
+“Archive this holomem”, the effects from 
+those abilities are one-shot effects. 
+10.2.1.2. A continuous effect is an effect that 
+remains valid for a fixed duration (or, if it is 
+not specified, "during this game"). 
+10.2.1.3. A replacement effect is an effect that 
+replaces an event that would normally 
+happen during the game with another event. 
+10.2.1.3.1. If an ability is written in the form of 
+"If…would [action A], …instead… [action 
+B]" or "If…would [action A], [action B] 
+instead", then the effect produced by that 
+ability is a replacement effect. 
+10.2.1.3.2. If an ability is written in the form of “If 
+would [Action A], you may [Option]. If you 
+do, instead… [Action B]” or "If... would 
+[action A], you may [Option]. If you do, 
+[action B] instead", then the effect from that 
+ability is an optional replacement effect. 
+10.2.1.3.3. An effect that increases or 
+decreases the amount of damage dealt or 
+received, and an effect that changes the 
+face value of a die are replacement effects. 
+ 
+10.3. Active effects and inactive effects 
+10.3.1. An effect may be rendered "active" or 
+"inactive" by another effect. If this happens, 
+follow the process below: 
+10.3.2. If a card's text states that part or all of an 
+effect is inactive under a certain condition, then 
+that part of the effect will not produce an effect 
+while under that condition, but it will still exist 
+as an ability. If that effect would normally 
+require a player to make a selection, that 
+selection is not made. 
+10.3.3. If a card's text states that part or all of an 
+effect is active under a certain condition, then 
+that part of the effect is inactive as long as 
+those conditions are not met. 
+10.3.4. An effect that is clearly handled in a certain 
+zone is active in that zone. 
+10.3.4.1. Abilities of cards with card type 
+holomem will only be active while on the 
+stage, and only while it is the topmost card of 
+the holomem stack. 
+10.3.4.2. Abilities of cards with card type support 
+with subtype tool or subtype fan, will only be 
+active while on the stage. 
+10.3.4.3. If an ability states specific zones that the 
+ability will be active in, then that ability will 
+also be active in those specified zones. 
+ 
+10.4. Costs and payment 
+10.4.1. At the beginning of the ability text, there 
+may be a cost indicated by “[cost].” This is the 
+cost associated with the ability. 
+10.4.2. To "pay the cost" means to execute any 
+actions indicated by that cost. 
+10.4.2.1. If a cost includes multiple actions, they 
+should be executed in the listed order. 
+10.4.2.2. If the player is unable to pay the full 
+cost, they cannot and do not pay that cost at 
+all. 
+ 
+10.5. Color indicator 
+10.5.1. This is the indicator that represents the 
+color and number of cheers needed to perform 
+Arts or baton pass. 
+10.5.2. When a specific color is required for the 
+Arts or baton pass, each cheer required will be 
+indicated by 1 of each of the specific color icon 
+(       ), and when no specific 
+color is required, each cheer required will be 
+indicated by 1 of each of the Neutral ( ) 
+symbol. 
+ 
+10.6. Check timing and play timing 
+10.6.1. Check timing refers to a point during the 
+game where rules resolution occurs and 
+automatic abilities are played. 
+10.6.1.1. During a check timing, all currently 
+applicable rule resolutions are resolved first. 
+Once those have been resolved, automatic 
+abilities whose trigger conditions have been 
+met are played and resolved. For more 
+information, see 10.6.3. 
+10.6.2. Play timing refers to the timing that a 
+specific player can choose specified actions to 
+execute. If a player would be given a play 
+timing, a check timing will be resolved before 
+any actions can be chosen to be executed by 
+that player. After all rules resolution and 
+automatic abilities that have been triggered in 
+that check timing has been resolved, the 
+specified player will then be given a play 
+timing. 
+10.6.3. When a check timing occurs, the game will 
+resolve based on the following steps. 
+10.6.3.1. All rules resolution applicable at this 
+time are executed simultaneously. If this 
+results in more instances of rules resolution, 
+repeat this step until no rules resolution 
+remains. 
+10.6.3.2. If the turn player controls any pending 
+automatic abilities, the player selects one of 
+them and plays and resolves it, and the game 
+returns to 10.6.3.1. 
+10.6.3.3. If the non-turn player controls any 
+pending automatic abilities, the player selects 
+one of them and plays and resolves it, and 
+the game returns to 10.6.3.1. 
+10.6.3.4. Check timing ends. 
+10.6.4. If any player receives a play timing, resolve 
+it as follows: 
+10.6.4.1. A check timing occurs. Resolve the 
+check timing. 
+10.6.4.2. The specified player receives the play 
+timing. That player may choose from any 
+actions that they can execute during that play 
+timing and execute it, or choose to not 
+execute any actions. If an action is chosen, 
+after it has been executed, that player will 
+receive another play timing. 
+10.6.4.3. If the specified player chooses to not 
+execute any actions, the play timing ends, 
+and the game will move to the next phase. 
+ 
+10.7. Playing and resolving 
+10.7.1. Activated abilities, automatic abilities, and 
+cards from hand, are resolved by being played, 
+whereupon they produce an effect. Continuous 
+abilities are not played; they constantly 
+produce an effect. 
+10.7.2. To play a card or ability, the player does the 
+following: 
+10.7.2.1. The player specifies the card in hand or 
+the ability to be played. If it's a card in the 
+hand, they reveal it and move it to the 
+resolution zone. 
+10.7.2.1.1. If it is an ability that has a usage 
+limitation, and the number of times the 
+ability has been used has reached the 
+usage limitation, that ability cannot be 
+chosen. 
+10.7.2.2. If any selections must be made as a 
+prerequisite to play the card or ability (option 
+selections for a "choose" ability, for example), 
+the player makes those selections. 
+10.7.2.3. If the card or ability requires the player 
+to select something other than a card in a 
+non-public zone (henceforth "target"), they 
+make that selection. 
+10.7.2.3.1. If the number of targets to be 
+selected is specified, the player must select 
+as many targets as they can to reach that 
+number. They cannot choose to not select 
+a target when there are targets that can be 
+selected. 
+10.7.2.3.2. If the number of targets to be 
+selected is written in the form "up to 
+[number]," the player specifies any number 
+between zero and the specified number 
+(inclusive). If the number of targets is 
+written as "any number," the player 
+specifies any number equal to or greater 
+than zero. 
+10.7.2.3.3. If the number of targets to be 
+selected is specified as one or more, but it 
+is not possible to select that many targets, 
+the game will proceed with all of the targets 
+that can be chosen, and the effects of the 
+card or ability will be applied to the chosen 
+targets. 
+10.7.2.3.4. If the number of targets to be 
+selected is specified as one or more, and 
+no targets can be selected, the game will 
+proceed with no targets chosen. All 
+portions of the effect that is related to the 
+selected target will be ignored. 
+
+10.7.2.3.5. If there are any specified criteria for 
+choosing a target in a hidden zone on the 
+text, there is no guarantee that the cards in 
+the specified hidden zone will meet the 
+conditions for being chosen as a target. 
+The player choosing from the hidden zone 
+can choose to declare that there are no 
+targets that meet the criteria, even if there 
+are targets that meet the criteria in that 
+zone. 
+10.7.2.3.6. If the card that is played is a card 
+that needs to be attached (5.17) to a 
+holomem card, the holomem card that it will 
+attach to will be chosen. 
+10.7.2.3.7. If the card that is played is a support 
+card, if the resolution of the card does not 
+change the game state other than to put 
+the support card that was played into the 
+archive, then that support card is not 
+played, and the game returns to the point 
+before the playing of the card. 
+10.7.2.4. If the card or ability requires any costs to 
+play, the player determines the costs and 
+pays all associated costs. 
+10.7.2.4.1. If the card or ability has “can only be 
+used if [condition]”, then the “[condition]” is 
+considered to be part of the cost of that 
+card or ability. 
+10.7.2.5. Resolve the card or ability. 
+10.7.2.5.1. If the played card is a support card, 
+resolve the following based on the subtype 
+of the support card. 
+10.7.2.5.1.1. If the card has subtype “item” or 
+“event” or “staff”, execute the text written 
+on the card, then place the card into the 
+archive. 
+10.7.2.5.1.2. If the card has subtype “tool” or 
+“mascot” or “fan”, attach (5.17) the card to 
+the chosen holomem. 
+10.7.2.5.1.2.1. If the chosen holomem for 
+the card to be attached to has already 
+reached the limit of cards that can be 
+attached, then that card is not attached, 
+and is placed into the archive instead. 
+10.7.2.5.2. If the ability that is played is an 
+activated or automatic ability, execute the 
+text written on the ability. 
+10.7.2.5.3. Even if the card with the activated 
+ability or automatic ability is no longer in its 
+original zone for some reason, the ability is 
+resolved. 
+10.7.2.5.4. If the card or ability that was played 
+has a target (10.7.2.3), and at least one 
+target that fits the requirement exists, the 
+card or ability that was played will be 
+considered “played”. 
+ 
+10.8. Resolving automatic abilities 
+10.8.1. An automatic ability is an ability that is 
+played in the next check timing after its trigger 
+condition is met. 
+10.8.2. When the trigger condition of an automatic 
+ability is met, the automatic ability becomes 
+pending. 
+10.8.2.1. If the automatic ability's trigger condition 
+is met multiple times, the automatic ability 
+becomes pending the same number of times. 
+10.8.3. When check timing occurs, the controller of 
+the pending automatic abilities selects one and 
+plays it. After the played ability is resolved, one 
+instance of its pending status is removed. 
+10.8.3.1. A pending automatic ability must be 
+played; a player cannot choose not to play to 
+it. However, if a player controls multiple 
+pending automatic abilities, they may select 
+which to play first. 
+10.8.3.1.1. If the automatic ability has an 
+associated cost that the player can pay to 
+play the ability, the player may choose not 
+to pay the associated cost, and the 
+automatic ability will not be played. 
+10.8.3.2. If the selected pending automatic ability 
+cannot be played for any reason, one 
+instance of its pending status is removed. 
+10.8.3.2.1. If the automatic ability has an 
+associated cost that the player can pay to 
+play the ability, the player may choose not 
+to pay the associated cost. The pending 
+automatic ability will not be played, and one 
+instance of its pending status is removed. 
+10.8.4. Some automatic abilities are triggered when 
+a card moves from one zone to another. These 
+are called "zone changing triggers." 
+10.8.4.1. Some automatic abilities with zone 
+changing triggers refer to the information of 
+the cards that triggered them or to whether 
+that ability is active. In such cases, 
+information is checked as follows: 
+10.8.4.1.1. When an automatic ability is 
+triggered by a card moving from a public 
+zone to a hidden zone or vice versa, and 
+that ability requires the card's information, 
+use the information from the card while it 
+was in the public zone. 
+10.8.4.1.2. When an automatic ability triggered 
+by a card moving from the stage to another 
+zone requires the card's information, or 
+when an automatic ability triggered by a 
+card moving from the stage to another zone 
+under a different controller requires the 
+card’s information, use the information from 
+the card while it's on the stage. 
+10.8.4.1.3. Aside from cases covered above, 
+when an automatic ability triggered by a 
+card moving from a public zone to another 
+public zone requires the card's information, 
+use the information from the card after it 
+moves to the new zone. 
+10.8.4.2. If a card with a zone changing trigger 
+ability enters a zone where the ability is valid, 
+and at the same time another card changes 
+zones in a way that satisfies that ability's 
+trigger condition, that condition is considered 
+to have been triggered. 
+10.8.5. Some effects may create an automatic 
+ability that triggers at a certain later point in 
+time. This is called a "timed trigger." 
+10.8.5.1. A timed trigger condition may only 
+trigger once unless a time frame is specified. 
+10.8.6. Some automatic abilities are triggered not 
+by the occurrence of an event, but by the 
+fulfillment of a certain condition (e.g., "When 
+there are no cards in your hand, ~"). This is 
+called a "state trigger." 
+10.8.6.1. State triggers become pending only 
+once when that state is achieved. After the 
+automatic ability is resolved, if the trigger 
+condition for that automatic ability is met 
+again, the ability becomes pending again. 
+10.8.7. When playing a pending automatic ability, 
+even if the card with the automatic ability has 
+changed zones, the automatic ability must still 
+be played. 
+ 
+10.9. Resolving one-shot effects 
+10.9.1. If a player is required to execute a one-shot 
+effect, they execute the indicated action only 
+once. 
+ 
+10.10. Resolving continuous effects 
+10.10.1. If a card's information is referenced while 
+one or more continuous effects are in place, 
+the continuous effects are applied to the card's 
+information in the following order: 
+10.10.1.1. The information written on the card 
+itself is always the base value. 
+10.10.1.2. Next, apply effects that give, remove, 
+or change abilities to active or inactive state. 
+10.10.1.3. Next, apply any continuous effects that 
+do not change the numerical values in the 
+information. 
+10.10.1.4. Next, apply any continuous effects that 
+change the numerical values in the 
+information. 
+10.10.1.5. If the application order of two 
+continuous effects—effect A and effect B—
+cannot be determined by 10.10.1.1–
+10.10.1.4, and applying A first would change 
+what B applies to or how B would be applied, 
+then B is considered dependent on A. 
+Dependent effects are always processed 
+after the effects they depend on. 
+10.10.1.6. If there are multiple continuous effects 
+whose application order cannot be 
+determined by 10.10.1.1–10.10.1.4, apply 
+them in the order in which they were 
+produced. 
+10.10.1.6.1. If the source of a continuous effect 
+is a continuous ability, its application order 
+is based on when the card with the ability 
+was put into its current zone. 
+10.10.1.6.2. For all other ability types, order is 
+based on when they were played. 
+10.10.2. A continuous effect that isn't produced by 
+a continuous ability doesn't apply to cards that 
+change zones after the corresponding ability is 
+played, unless they move from one zone to 
+another. 
+10.10.3. A continuous effect that changes card 
+information in a certain zone is applied at the 
+same time an applicable card enters that zone. 
+10.10.3.1. An automatic ability whose trigger 
+condition requires a card with certain 
+information to enter a zone refers to the 
+card's information after any continuous 
+effects that are applicable in that zone have 
+been applied. 
+ 
+10.11. Resolving replacement effects 
+10.11.1. While a replacement effect is in place, if 
+the target event (the event being replaced) 
+would occur, it does not occur, and instead the 
+event indicated by the replacement effect 
+occurs. 
+10.11.1.1. The original event that was replaced is 
+considered to have not occurred at all. 
+10.11.2. If there are multiple replacement effects for 
+the same event, the affected player determines 
+the order in which they are applied. 
+10.11.2.1. If the affected event is a card or ability, 
+its controller determines the order instead. 
+10.11.2.2. If the affected event is a game action, 
+the order is determined by the player 
+executing the action or the controller of the 
+card to which the action applies. 
+10.11.2.3. Each replacement effect is applied 
+once at most to any single event. 
+10.11.2.4. If there are replacement effects applied 
+to dealing damage and taking damage at the 
+same time when resolving damage, the 
+replacement effect for dealing damage will 
+always be applied first. 
+10.11.3. For replacement effects that give a choice 
+(“If [Action A], you may [Option]. If you do, 
+instead… [Action B]”), if the choice cannot be 
+made, the replacement effect is not applied. 
+10.11.4. When resolving any ability or effect, if the 
+original resolution has any conditions that 
+cannot be completed, but a replacement effect 
+can be applied to fulfill the conditions of the 
+original resolution, then the condition is 
+considered to be fulfilled after the replacement 
+effect has been executed. 
+- Example: If there is an Arts with cost “You may 
+archive 1 cheer from your back holomem”, you do not 
+have any cheers attached to your back holomem, and 
+you have a fan attached to the performing holomem 
+that has “If the holomem this fan is attached to 
+archives a cheer for its ability, you may archive this 
+fan in place of 1 cheer.”, you may archive the fan to 
+pay the cost of the ability. 
+ 
+10.12. Final card information 
+10.12.1. If an effect refers to a certain card's 
+information or placement state in a certain 
+zone, and the card has changed zones 
+(excluding movement from one zone to 
+another) by the time the effect is executed, the 
+effect refers to the information or placement 
+state of the card when it was last in that zone. 
+ 
+10.13. Origin 
+10.13.1. There may be abilities or effects that refer 
+to the origin of the effect or damage. 
+10.13.2. The origin of an ability is the card that 
+holds that ability, or in the case of a timed 
+trigger, the ability that created that timed 
+trigger. 
+10.13.3. The origin of damage, in the case the 
+damage is from an effect, will refer to the card 
+that holds the ability that dealt the damage. In 
+the case the damage is from Arts, the origin of 
+that damage is the card that holds the Arts that 
+dealt the damage. 
+ 
+11. Rules resolution 
+ 
+11.1. Basics of rules resolution 
+11.1.1. "Rules resolution" refers to the automatic 
+processes covered in this section, which are 
+executed during or after certain game events. 
+11.1.2. Rules resolution occurs only during check 
+timing and checks whether the conditions of a 
+certain rule have been met. If met, that rule is 
+applied. Even if a condition is met during the 
+execution of another process, if it is not met at 
+the point of the check timing, that rule is not 
+applied. 
+11.1.3. If multiple instances of rules resolution 
+should be required at the same time, the 
+processes are executed simultaneously. 
+ 
+11.2. Resolving losses 
+11.2.1. If a player has 0 cards in the life Area, that 
+player loses the game. 
+11.2.2. If a player has no holomem on the stage, 
+that player loses the game. 
+ 
+11.3. Resolving downed holomem 
+11.3.1. If a holomem has taken damage equal to or 
+greater than their HP, the rules resolution is 
+applied in the following order: 
+11.3.1.1. “If downed” abilities on the downed 
+holomem are executed. 
+11.3.1.1.1. From the corresponding pending 
+abilities, if the turn player is the controller of 
+any of the pending abilities, the turn player 
+will select one of their pending abilities and 
+execute it. If there are no pending abilities 
+that belong to the turn player, the non-turn 
+player will select one of their pending 
+abilities and execute it. 
+11.3.1.1.2. If there are any corresponding 
+pending abilities that have not been 
+executed yet, return to 11.3.1.1.1. 
+11.3.1.2. Place all holomem cards in the stack of 
+that holomem into the archive, and increase 
+the life damage of the controller of that 
+holomem by 1. 
+ 
+11.4. Resolving illegal cards 
+11.4.1. If there is a card on the stage that is not a 
+holomem, and it does not have any associated 
+holomem that it is attached to, that card is 
+placed into the archive as a rules resolution. 
+11.4.2. If there is a holomem that has cards 
+attached to it that is above the limit, the 
+controller will choose cards equal to the limit 
+from the cards attached, and the remaining 
+cards not chosen will be placed into the 
+archive.  
+11.4.3. If there is a card on the stage that has 
+specific conditions for cards that it can be 
+attached to, and that condition is not fulfilled, 
+the card being attached will be placed into the 
+archive. 
+ 
+11.5. Resolving life damage 
+11.5.1. If any player has 1 or more life damage, and 
+there are no other rules resolution pending, 
+that player reveals the top card of their life, and 
+that player sends (5.21) that card to any 
+holomem that they control. Then, reduce the 
+life damage of that player by 1. 
+11.5.1.1. If multiple players have 1 or more life 
+damage, while the turn player has 1 or more 
+life damage, the non-turn player will not 
+resolve life damage. 
+ 
+12. Oshi skill and Arts 
+ 
+ 
+ 
+ 
+ 
+ 
+①Cost of Oshi skill  ②Name of Oshi skill ③Effect 
+ 
+12.1. Oshi skill / SP Oshi skill 
+12.1.1. Oshi skill and SP Oshi skill are abilities with 
+special information that can be played during 
+the main phase. 
+12.1.2. SP Oshi skill is a type of Oshi skill, and the 
+resolution is handled the same way. 
+12.1.3. To pay the cost required for playing the 
+Oshi skill, the controller of that Oshi skill will 
+need to place cards from their holo Power area 
+equal to the number in the cost information on 
+the Oshi skill into the archive. 
+12.1.4. There are Oshi skills with the text “[(Usage 
+Limitation)](Ability),” and it indicates the 
+maximum limit that the Oshi skill can be 
+resolved within a duration. If an Oshi skill has a 
+limit, the number of executions of the Oshi skill 
+cannot be more than the stated limit within that 
+duration. 
+12.1.5. When executing Oshi skills, follow the text 
+stated in the Oshi skill. 
+12.1.5.1. If the text has "Usable if… would 
+(Condition): …instead…(Effect)" or "Usable 
+if… would (Condition): (Effect) instead ", it is 
+resolved as a replacement (10.11.3) effect of 
+the (Condition). 
+12.1.5.2. If the text has “(Specified holomem) is 
+downed…”, it is resolved as part of down 
+resolution (11.3.1.1). 
+12.1.5.3. If the text has “Usable when (Condition 
+other than downed): (Effect)”, then it is 
+resolved as an Automatic ability with “When 
+(Condition) is met, you may choose to 
+resolve (Effect). If (Effect) did not resolve, it 
+will not count towards the limit of the Oshi 
+skill”. 
+12.1.5.4. If the text does not fall into any of the 
+above categories, it is resolved as an 
+activated ability. 
+ 
+
+ 
+ 
+①Name of Oshi stage skill ③Effect 
+ 
+12.2. Oshi stage skill 
+12.2.1. Oshi stage skills are continuous ability 
+which Oshi holomem possess. 
+12.2.2. The stated effects for Oshi stage skills are 
+always active without the need for any 
+particular costs. 
+ 
+ 
+①Cost ②Name of Arts ③Default Value 
+④Critical Icon ⑤Text 
+ 
+12.3. Arts 
+12.3.1. Arts is a special type of activated ability that 
+can be played during the performance phase, 
+or continuous ability with an optional 
+replacement effect. 
+12.3.2. If the text has “Usable if (Condition): (Text)” 
+or “When (Condition): (Text)”, it is a continuous 
+ability with an optional replacement effect. All 
+other Arts with text that do not fall into the 
+above category is an activated ability. 
+12.3.3. An Arts that is an activated ability is played 
+in the following steps: 
+12.3.3.1. The cost for playing the specified Arts 
+refers to the cost indicated on the holomem 
+with the specified Arts, and the cost checks if 
+the number of cheers attached to that 
+holomem is sufficient. 
+12.3.3.1.1. Even if an Arts is played, the 
+required number of cheers will not be 
+archived. 
+12.3.3.2. When choosing to play an Arts, select a 
+holomem in the non-turn player’s center 
+position or collab position as the target. 
+12.3.4. An Arts that is played as an activated ability 
+is resolved in the following steps: 
+12.3.4.1. The damage dealt by the Arts is set as 
+the default value. 
+12.3.4.2. If the target has the same color as the 
+color indicated by the critical icon, the 
+damage is increased by the value indicated 
+in the icon. 
+12.3.4.3. Resolve the text of the Arts as its 
+effects. If there are any modifications to the 
+damage dealt by the Arts, it will be applied. 
+12.3.4.4. Then, if there are any effects that 
+increase or decrease the damage dealt by 
+this Arts, they are applied, and the amount of 
+damage dealt by this Arts is finalized. 
+12.3.4.5. Deal the finalized amount of damage to 
+the target holomem chosen in 12.3.3.2. 
+12.3.5. An Arts that is a continuous ability is played 
+in the following steps: 
+12.3.5.1. Arts with text “[(Usage 
+Limitation)]Usable if (Condition): (Text)” is 
+resolved as “if (Condition) is met, and the 
+number of times this ability has resolved is 
+less than (Usage Limitation), and the number 
+and type of Cheers attached to this holomem 
+meets the cost requirement of this Arts, you 
+may instead declare the usage of this Arts. If 
+you do so, resolve the (Text) as the 
+replacement of any associated (Condition). 
+ 
+13. Keywords and keyword abilities 
+ 
+13.1. Overview 
+13.1.1. Keywords are terms that are used to 
+abbreviate abilities that execute specific 
+processes. Abilities that are indicated by 
+specific keywords are called keyword abilities. 
+ 
+13.2. Collab effect 
+13.2.1. A collab effect is an automatic ability that 
+triggers when the holomem collabs. 
+13.2.1.1. Collab effect is indicated by  in 
+the card text. 
+13.2.2. If an ability name has “《collab effect》” in 
+it, that ability has “When this holomem is 
+placed in the collab position by collab (5.16), 
+(effect).” 
+ 
+13.3. Bloom effect 
+13.3.1. A bloom effect is an automatic ability that 
+triggers when the holomem blooms. 
+13.3.1.1. Bloom effect is indicated by  in 
+the card text 
+13.3.2. If an ability name has “《Bloom Effect》” in 
+it, that ability has “When this card blooms, 
+(effect).” 
+ 
+13.4. Gift 
+13.4.1. Gift is a keyword that appears in some of 
+the abilities. 
+13.4.1.1. Gift is indicated by  in the card text. 
+ 
+14. Miscellaneous 
+ 
+14.1. Perpetual cycles 
+14.1.1. When executing a process, it may be 
+possible for a sequence of actions to be 
+repeated an infinite number of times. This is 
+called a "perpetual cycle," and is handled as 
+follows: 
+14.1.1.1. When a perpetual cycle occurs, the turn 
+player declares the sequence of actions they 
+wish to execute and then specifies the 
+number of times they wish to execute that 
+sequence. Next, the non-turn player can 
+either allow the proposed sequence to be 
+executed the specified number of times, or 
+
+have it executed a lesser number of times by 
+declaring that an action or actions not 
+included in the sequence will be executed at 
+a specific point in the perpetual cycle. The 
+turn player then executes the actions 
+according to the decision of the non-turn 
+player. 
+14.1.1.2. If the turn player executes an action that 
+results in the game state remaining 
+completely identical to before the action was 
+executed, the turn player may not execute 
+that action again. 
+14.1.1.3. If neither player is able to stop the 
+perpetual cycle, the game ends in a draw. 
+ 

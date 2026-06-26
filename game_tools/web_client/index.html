@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>hOCG – Two-Player Web Client</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:#0d0d1a;color:#eee;overflow-x:hidden}
+
+    /* ── Top bar ── */
+    #topbar{display:flex;align-items:center;gap:10px;padding:8px 14px;background:#151528;flex-wrap:wrap;z-index:100;position:relative}
+    #topbar label{font-size:13px}
+    #topbar input,#topbar button{padding:4px 8px;border-radius:4px;border:1px solid #444;background:#222;color:#eee;font-size:13px}
+    #topbar button{cursor:pointer;background:#2d5bff;border-color:#2d5bff;font-weight:600}
+    #topbar button:hover{background:#1a44cc}
+    #status{font-size:13px;color:#8f8;flex:1}
+
+    /* ── Lobby ── */
+    #lobby{position:fixed;inset:0;background:rgba(10,10,30,0.95);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+    #lobby.hidden{display:none}
+    #lobby h2{font-size:22px;color:#7af}
+    #lobby .deck-input{display:flex;gap:8px;align-items:center}
+    #lobby input{padding:8px 12px;border-radius:6px;border:1px solid #555;background:#1b1b2f;color:#eee;font-size:15px;width:220px}
+    #lobby button{padding:8px 18px;border-radius:6px;border:none;background:#2d5bff;color:#fff;font-size:15px;cursor:pointer;font-weight:600}
+    #lobby button:hover{background:#1a44cc}
+    #lobby button:disabled{opacity:.4;cursor:default}
+    #lobby_status{font-size:14px;color:#aaa;min-height:20px}
+    #lobby_players{font-size:13px;color:#888}
+
+    /* ── Phase badge ── */
+    #phase_badge{padding:3px 10px;border-radius:12px;background:#2d5bff;font-size:12px;font-weight:700;letter-spacing:.5px}
+
+    /* ── Step bar ── */
+    #step_bar{display:flex;align-items:center;gap:2px;padding:6px 14px;background:#0e0e22;overflow-x:auto}
+    .step-chip{padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600;background:#222;color:#666;white-space:nowrap;transition:all .2s}
+    .step-chip.active{background:#2d5bff;color:#fff;box-shadow:0 0 8px rgba(45,91,255,0.5)}
+    .step-chip.done{background:#1a3a1a;color:#6c6}
+    .step-chip.upcoming{background:#222;color:#555}
+    #step_info{font-size:11px;color:#aaa;margin-left:8px;flex:1}
+    #turn_info{font-size:12px;color:#8af;font-weight:600;margin-right:8px}
+    #next_step_btn{padding:4px 14px;border-radius:14px;border:none;background:#2d5bff;color:#fff;font-size:12px;font-weight:700;cursor:pointer;margin-left:auto;white-space:nowrap}
+    #next_step_btn:hover{background:#1a44cc}
+
+    /* ── Dice overlay ── */
+    #dice_overlay{position:fixed;inset:0;background:rgba(10,10,30,0.96);z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+    #dice_overlay.hidden{display:none}
+    #dice_overlay h2{color:#7af;font-size:22px}
+    #dice_overlay .dice-display{display:flex;gap:30px;align-items:center;margin:10px 0}
+    .dice-box{display:flex;flex-direction:column;align-items:center;gap:6px}
+    .dice-box .dice-value{font-size:64px;font-weight:800;color:#fff;min-width:80px;text-align:center}
+    .dice-box .dice-label{font-size:13px;color:#aaa}
+    .dice-box .dice-value.waiting{color:#555;font-size:32px}
+    #dice_btn{padding:12px 30px;border-radius:8px;border:none;background:#2d5bff;color:#fff;font-size:18px;cursor:pointer;font-weight:700}
+    #dice_btn:hover{background:#1a44cc}
+    #dice_btn:disabled{opacity:.4;cursor:default}
+    #dice_status{font-size:14px;color:#ccc;min-height:20px;text-align:center}
+
+    /* ── Choose order overlay ── */
+    #order_overlay{position:fixed;inset:0;background:rgba(10,10,30,0.96);z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+    #order_overlay.hidden{display:none}
+    #order_overlay h2{color:#7af;font-size:22px}
+    #order_overlay .order-btns{display:flex;gap:16px}
+    #order_overlay button{padding:14px 30px;border-radius:8px;border:none;font-size:16px;font-weight:700;cursor:pointer}
+    #order_overlay .btn-first{background:#2d5bff;color:#fff}
+    #order_overlay .btn-second{background:#555;color:#eee}
+    #order_overlay button:hover{filter:brightness(1.2)}
+    #order_status{font-size:14px;color:#ccc}
+
+    /* ── Game over overlay ── */
+    #gameover_overlay{position:fixed;inset:0;background:rgba(10,10,30,0.96);z-index:350;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+    #gameover_overlay.hidden{display:none}
+    #gameover_overlay h1{font-size:36px}
+    #gameover_overlay .win{color:#4f4}
+    #gameover_overlay .lose{color:#f44}
+    #gameover_reason{font-size:16px;color:#aaa}
+
+    /* ── Pending action banner ── */
+    #pending_banner{display:none;padding:8px 14px;background:#8b4513;color:#fff;font-size:13px;font-weight:600;text-align:center}
+
+    /* ── Setup banner ── */
+    #setup_banner{display:none;padding:12px 14px;background:linear-gradient(135deg,#1a1a40,#2a1a50);border-bottom:2px solid #5f5;text-align:center}
+    #setup_instruction{font-size:15px;font-weight:700;color:#8f8;margin-bottom:6px}
+    #setup_details{font-size:12px;color:#ccc;margin-bottom:8px}
+    #setup_buttons{display:flex;gap:10px;justify-content:center;margin-bottom:6px}
+    #setup_buttons button{padding:8px 20px;border-radius:6px;border:none;font-size:14px;font-weight:700;cursor:pointer}
+    #setup_mulligan_btn{background:#c44;color:#fff}
+    #setup_mulligan_btn:hover{background:#a33}
+    #setup_mulligan_btn:disabled{opacity:.4;cursor:default}
+    #setup_ready_btn{background:#2d5bff;color:#fff}
+    #setup_ready_btn:hover{background:#1a44cc}
+    #setup_ready_btn:disabled{opacity:.4;cursor:default}
+    #setup_opponent_info{font-size:12px;color:#aaa}
+
+    /* ── Field ── */
+    #field{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 0}
+    .field-label{text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#666;margin:1px 0}
+    .playmat-wrap{position:relative;width:100%;max-width:1020px}
+    .playmat-wrap img.playmat-bg{width:100%;display:block;border-radius:3px}
+    .playmat-wrap.opponent{transform:rotate(180deg)}
+    .playmat-wrap.opponent .zone{transform:rotate(180deg)}
+
+    /* ── Zones ── */
+    .zone{position:absolute;border:1px dashed rgba(255,255,255,0.08);overflow:visible;border-radius:3px;transition:border-color .15s}
+    .zone.drag-over{border-color:#5f5!important;background:rgba(80,255,80,0.06)}
+    .zone.play-target{border-color:#ff5!important;background:rgba(255,255,80,0.08);cursor:pointer}
+    .zone-title{font-size:9px;color:rgba(255,255,255,0.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;top:0;left:2px;z-index:5;pointer-events:none}
+    .zone-cards{position:relative;width:100%;height:100%;overflow:visible}
+
+    /* ── Cards generic ── */
+    .card-thumb{object-fit:cover;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.7);cursor:pointer;transition:transform .12s,outline .1s}
+    .card-thumb:hover{transform:scale(1.08);z-index:10}
+    .card-thumb.selected{outline:3px solid #ff0;outline-offset:1px}
+
+    /* ── Stack zone (deck, archive) ── */
+    .stack-display{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .stack-display .deck-visual{position:relative;display:flex;gap:2px;align-items:flex-end}
+    .stack-display .stack-card{border-radius:2px;box-shadow:0 2px 4px rgba(0,0,0,.6)}
+    .count-badge{position:absolute;bottom:3px;right:3px;background:rgba(0,0,0,0.8);color:#fff;font-size:11px;font-weight:700;padding:1px 6px;border-radius:6px;z-index:5;pointer-events:none}
+
+    /* ── Horizontal stack (life, holo_power, yell_deck) ── */
+    .hstack-display{position:relative;width:100%;height:100%;overflow:hidden}
+    .hstack-card{position:absolute;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.5)}
+
+    /* ── Single card zone (centre, collabo, oshi) ── */
+    .single-display{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:visible}
+    .single-display .main-card{border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.5);cursor:pointer}
+    .single-display .main-card.resting{transform:rotate(90deg)}
+    .peek-card{border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.4);pointer-events:auto;cursor:pointer;object-fit:cover}
+    .badge{position:absolute;font-size:8px;font-weight:700;padding:1px 4px;border-radius:4px;z-index:25;pointer-events:none}
+    .badge-yell{bottom:2px;right:2px;background:rgba(40,40,40,0.85);color:#fff;display:flex;gap:2px;align-items:center;padding:2px 4px}
+    .yell-color-badge{flex-wrap:wrap}
+    .yell-dot{display:inline-flex;align-items:center;justify-content:center;width:12px;height:12px;border-radius:50%;font-size:7px;font-weight:700;color:#000;border:1px solid rgba(255,255,255,0.4);text-shadow:0 0 2px rgba(255,255,255,0.5)}
+    .badge-bloom{bottom:2px;left:2px;background:rgba(100,200,255,0.85);color:#000}
+    .badge-rest{top:2px;left:50%;transform:translateX(-50%);background:rgba(80,80,160,0.85);color:#fff}
+    .badge-dmg{top:2px;right:2px;background:rgba(60,60,80,0.85);color:#fff;font-size:9px;padding:1px 5px}
+    .badge-new{top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,180,0,0.92);color:#000;font-size:10px;padding:1px 6px;letter-spacing:1px}
+
+    /* ── Multi card zone (back) ── */
+    .multi-display{display:flex;gap:2px;align-items:center;padding:2px;height:100%;flex-wrap:nowrap;overflow:visible}
+    .multi-slot{position:relative;flex:1;min-width:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:visible}
+    .multi-slot .card-in-slot{border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.5);cursor:pointer}
+    .multi-slot .card-in-slot.resting{transform:rotate(90deg)}
+
+    /* ── Hidden zone (opponent) ── */
+    .hidden-display{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+    .hidden-display .back-img{border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.5);opacity:0.9}
+
+    /* ── Hand tray ── */
+    #hand_tray{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(to top,#111 80%,transparent);padding:6px 12px 8px;z-index:50;display:flex;align-items:center;gap:6px;overflow-x:auto;min-height:90px}
+    #hand_tray .hand-label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;writing-mode:vertical-rl;margin-right:4px}
+    #hand_tray .card-thumb{width:58px;height:82px;cursor:pointer}
+    #hand_tray .card-thumb.selected{outline:3px solid #ff0}
+
+    /* ── Action bar ── */
+    #actions{display:flex;align-items:center;gap:6px;padding:6px 14px;background:#151528;flex-wrap:wrap}
+    #actions button{padding:4px 10px;border-radius:4px;border:1px solid #555;background:#333;color:#eee;font-size:12px;cursor:pointer}
+    #actions button:hover{background:#444}
+    #actions button.primary{background:#2d5bff;border-color:#2d5bff}
+    #undo_btn{background:#8b5e00;border-color:#8b5e00}
+    #undo_btn:hover{background:#a67200}
+    #rewind_step_btn{background:#5e3a8b;border-color:#5e3a8b}
+    #rewind_step_btn:hover{background:#7a4dba}
+    #retire_btn{background:#8b1313;border-color:#8b1313}
+    #retire_btn:hover{background:#b01a1a}
+    #actions .sep{width:1px;height:20px;background:#444;margin:0 2px}
+
+    /* ── Context menu ── */
+    #context_menu{position:fixed;background:#1e1e32;border:1px solid #555;border-radius:6px;padding:4px 0;z-index:500;min-width:170px;box-shadow:0 4px 16px rgba(0,0,0,.7);display:none}
+    #context_menu .menu-header{padding:4px 14px;font-size:10px;color:#888;font-weight:600;border-bottom:1px solid #333}
+    #context_menu .menu-item{padding:6px 14px;cursor:pointer;font-size:12px;color:#eee;white-space:nowrap}
+    #context_menu .menu-item:hover{background:#2d5bff}
+    #context_menu .menu-item.disabled{color:#555;cursor:default}
+    #context_menu .menu-item.disabled:hover{background:transparent}
+    #context_menu .menu-sep{border-top:1px solid #333;margin:2px 0}
+
+    /* ── Search/Bloom modal ── */
+    .modal-overlay{position:fixed;inset:0;background:rgba(10,10,30,0.95);z-index:400;display:flex;flex-direction:column;align-items:center;padding:20px;overflow-y:auto}
+    .modal-overlay h3{color:#7af;margin-bottom:10px}
+    .modal-filter{padding:6px 12px;border-radius:6px;border:1px solid #555;background:#1b1b2f;color:#eee;font-size:14px;width:300px;margin-bottom:10px}
+    .modal-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:10px}
+    .modal-card{display:flex;flex-direction:column;align-items:center;background:#1a1a2e;border:1px solid #333;border-radius:6px;padding:6px;cursor:pointer;width:110px;transition:border-color .15s}
+    .modal-card:hover{border-color:#5f5}
+    .modal-card img{width:80px;height:112px;object-fit:cover;border-radius:3px}
+    .modal-card .mc-name{font-size:8px;color:#aaa;text-align:center;margin-top:3px;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .modal-card .mc-actions{display:flex;gap:3px;margin-top:4px;flex-wrap:wrap;justify-content:center}
+    .modal-card .mc-actions button{font-size:9px;padding:2px 6px;border:1px solid #555;background:#333;color:#eee;border-radius:3px;cursor:pointer}
+    .modal-card .mc-actions button:hover{background:#2d5bff}
+    .modal-close{margin-top:12px;padding:8px 20px;background:#333;border:1px solid #555;color:#eee;border-radius:6px;cursor:pointer;font-size:14px}
+    .modal-close:hover{background:#444}
+    /* Stage holomen picker – 2 row layout */
+    .stage-pick-grid{display:flex;flex-direction:column;gap:8px;align-items:center;padding:10px}
+    .stage-pick-row{display:flex;gap:8px;justify-content:center}
+    .stage-pick-row .modal-card{width:110px}
+    .stage-pick-label{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+    .modal-card.dragging{opacity:0.4;border-color:#5f5}
+    .modal-card.drag-over-card{border-color:#ff0;border-width:2px}
+    .modal-card .drag-handle{cursor:grab;color:#888;font-size:16px;user-select:none;margin-bottom:2px}
+    .modal-card .drag-handle:active{cursor:grabbing}
+    .modal-card .mc-order{font-size:11px;color:#7af;font-weight:bold;margin-bottom:2px}
+    .modal-bulk{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;justify-content:center}
+    .modal-bulk button{padding:6px 14px;border:1px solid #555;background:#2a2a4a;color:#eee;border-radius:6px;cursor:pointer;font-size:12px}
+    .modal-bulk button:hover{background:#3a5bff}
+
+    /* ── Zoom modal ── */
+    .zoom-modal{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:600;cursor:pointer}
+    .zoom-modal img{max-width:85vw;max-height:85vh;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,.8)}
+
+    /* ── Debug ── */
+    details.debug{margin:2px 14px;font-size:11px;margin-bottom:100px}
+    details.debug pre{max-height:180px;overflow:auto;background:#111;padding:6px;border-radius:4px;font-size:10px}
+  </style>
+</head>
+<body>
+
+<!-- Lobby overlay -->
+<div id="lobby">
+  <h2>hOCG – Deck Selection</h2>
+  <div class="deck-input">
+    <label>Server <input id="server" value="localhost:8000" style="width:130px"/></label>
+    <label>Name <input id="name" value="Player" style="width:90px"/></label>
+    <button id="connect">Connect</button>
+  </div>
+  <div class="deck-input" id="deck_row" style="display:none">
+    <label>Decklog code <input id="deck_code" placeholder="e.g. 11QBS" style="width:150px"/></label>
+    <span style="margin-left:12px">
+      <label><input type="radio" name="deck_site" value="jp" checked> JP</label>
+      <label style="margin-left:8px"><input type="radio" name="deck_site" value="global"> Global</label>
+    </span>
+    <button id="load_deck">Load Deck</button>
+  </div>
+  <div id="lobby_status"></div>
+  <div id="lobby_players"></div>
+</div>
+
+<!-- Dice roll overlay -->
+<div id="dice_overlay" class="hidden">
+  <h2>🎲 Roll Dice</h2>
+  <div class="dice-display">
+    <div class="dice-box"><div class="dice-label" id="dice_p1_name">Player 1</div><div class="dice-value waiting" id="dice_p1_val">?</div></div>
+    <div style="font-size:24px;color:#555">vs</div>
+    <div class="dice-box"><div class="dice-label" id="dice_p2_name">Player 2</div><div class="dice-value waiting" id="dice_p2_val">?</div></div>
+  </div>
+  <button id="dice_btn">Roll Dice</button>
+  <div id="dice_status">Both players must roll</div>
+</div>
+
+<!-- Choose order overlay -->
+<div id="order_overlay" class="hidden">
+  <h2>🏆 You Won the Dice Roll!</h2>
+  <div id="order_status">Choose your turn order</div>
+  <div class="order-btns">
+    <button class="btn-first" id="order_first">Go First</button>
+    <button class="btn-second" id="order_second">Go Second</button>
+  </div>
+</div>
+
+<!-- Game over overlay -->
+<div id="gameover_overlay" class="hidden">
+  <h1 id="gameover_title">—</h1>
+  <div id="gameover_reason">—</div>
+  <button id="back_to_lobby_btn" style="margin-top:20px;padding:12px 30px;border-radius:8px;border:none;background:#2d5bff;color:#fff;font-size:16px;font-weight:700;cursor:pointer">🏠 Back to Lobby</button>
+</div>
+
+<!-- Field -->
+<div id="field">
+  <div class="field-label" id="opp_label">Opponent</div>
+  <div class="playmat-wrap opponent" id="opp_playmat">
+    <img class="playmat-bg" src="/assets/playmat.jpg" alt="opponent playmat">
+  </div>
+  <div class="field-label" id="you_label">You</div>
+  <div class="playmat-wrap owner" id="you_playmat">
+    <img class="playmat-bg" src="/assets/playmat.jpg" alt="your playmat">
+  </div>
+</div>
+
+<!-- Top bar (moved below field) -->
+<div id="topbar">
+  <span id="status" style="font-size:12px;color:#8f8"></span>
+  <span id="phase_badge">—</span>
+</div>
+
+<!-- Step bar -->
+<div id="step_bar" style="display:none">
+  <span id="turn_info">Turn 1</span>
+  <span class="step-chip" data-step="reset">1. Reset</span>
+  <span class="step-chip" data-step="draw">2. Draw</span>
+  <span class="step-chip" data-step="cheer">3. Cheer</span>
+  <span class="step-chip" data-step="main">4. Main</span>
+  <span class="step-chip" data-step="performance">5. Performance</span>
+  <span class="step-chip" data-step="end">6. End</span>
+  <span id="step_info"></span>
+  <button id="next_step_btn" style="display:none">Next Step →</button>
+</div>
+
+<!-- Pending action banner -->
+<div id="pending_banner"></div>
+
+<!-- Setup banner -->
+<div id="setup_banner" style="display:none">
+  <div id="setup_instruction">Place a Debut holomen on Centre to begin</div>
+  <div id="setup_details"></div>
+  <div id="setup_buttons">
+    <button id="setup_mulligan_btn">🔄 Mulligan</button>
+    <button id="mulligan_ready_btn" disabled>✓ Confirm Hand</button>
+    <button id="setup_ready_btn" disabled>✓ Ready</button>
+  </div>
+  <div id="setup_opponent_info"></div>
+</div>
+
+<!-- Action bar -->
+<div id="actions">
+  <!-- Step 3: Cheer -->
+  <button id="skip_cheer" class="primary" style="display:none">Skip Cheer</button>
+  <!-- Step 4: Main -->
+  <button id="draw" style="display:none">Draw 1</button>
+  <button id="end_main" class="primary" style="display:none">End Main →</button>
+  <!-- Step 5: Performance -->
+  <button id="end_performance" class="primary" style="display:none">End Performance →</button>
+  <!-- Step 6: End -->
+  <button id="end_turn" class="primary" style="display:none">End Turn →</button>
+  <div class="sep"></div>
+  <button id="end_deduct_life_btn" style="display:none">End Deduct Life</button>
+  <button id="hand_to_deck" style="display:none">Hand→Deck</button>
+  <button id="rewind_step_btn" title="Go back to previous step">⏪ Back Step</button>
+  <button id="undo_btn" title="Undo previous action (full rollback)">↩ Undo</button>
+  <button id="retire_btn" title="Concede the match">🏳 Retire</button>
+  <span id="action_feedback" style="font-size:11px;color:#4fc3f7;margin-left:6px;transition:opacity .5s"></span>
+  <span id="play_hint" style="font-size:11px;color:#777;margin-left:8px"></span>
+</div>
+
+<!-- Hand tray -->
+<div id="hand_tray">
+  <div class="hand-label">HAND</div>
+</div>
+
+<!-- Context menu -->
+<div id="context_menu"></div>
+
+<!-- Debug -->
+<details class="debug"><summary>Debug JSON</summary>
+  <div style="display:flex;gap:8px">
+    <div style="flex:1"><strong>You</strong><pre id="you_json">—</pre></div>
+    <div style="flex:1"><strong>Opponent</strong><pre id="opp_json">—</pre></div>
+  </div>
+</details>
+
+<div id="zoom_container"></div>
+<div id="modal_container"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

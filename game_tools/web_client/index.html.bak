@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>hOCG – Two-Player Web Client</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:#0d0d1a;color:#eee;overflow-x:hidden}
+
+    /* ── Top bar ── */
+    #topbar{display:flex;align-items:center;gap:10px;padding:8px 14px;background:#151528;flex-wrap:wrap;z-index:100;position:relative}
+    #topbar label{font-size:13px}
+    #topbar input,#topbar button{padding:4px 8px;border-radius:4px;border:1px solid #444;background:#222;color:#eee;font-size:13px}
+    #topbar button{cursor:pointer;background:#2d5bff;border-color:#2d5bff;font-weight:600}
+    #topbar button:hover{background:#1a44cc}
+    #status{font-size:13px;color:#8f8;flex:1}
+
+    /* ── Lobby / Deck selection overlay ── */
+    #lobby{position:fixed;inset:0;background:rgba(10,10,30,0.95);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .3s}
+    #lobby.hidden{display:none}
+    #lobby h2{font-size:22px;color:#7af}
+    #lobby .deck-input{display:flex;gap:8px;align-items:center}
+    #lobby input{padding:8px 12px;border-radius:6px;border:1px solid #555;background:#1b1b2f;color:#eee;font-size:15px;width:220px}
+    #lobby button{padding:8px 18px;border-radius:6px;border:none;background:#2d5bff;color:#fff;font-size:15px;cursor:pointer;font-weight:600}
+    #lobby button:hover{background:#1a44cc}
+    #lobby button:disabled{opacity:.4;cursor:default}
+    #lobby_status{font-size:14px;color:#aaa;min-height:20px}
+    #lobby_players{font-size:13px;color:#888}
+
+    /* ── Phase badge ── */
+    #phase_badge{padding:3px 10px;border-radius:12px;background:#2d5bff;font-size:12px;font-weight:700;letter-spacing:.5px}
+
+    /* ── Field: two playmats ── */
+    #field{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 0}
+    .field-label{text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#666;margin:1px 0}
+    .playmat-wrap{position:relative;width:100%;max-width:1020px}
+    .playmat-wrap img.playmat-bg{width:100%;display:block;border-radius:3px}
+    .playmat-wrap.opponent{transform:rotate(180deg)}
+    .playmat-wrap.opponent .zone{transform:rotate(180deg)}
+
+    /* ── Zones ── */
+    .zone{position:absolute;border:1px dashed rgba(255,255,255,0.1);padding:2px;overflow:hidden;border-radius:3px;transition:border-color .15s}
+    .zone.drag-over{border-color:#5f5!important;background:rgba(80,255,80,0.06)}
+    .zone.play-target{border-color:#ff5!important;background:rgba(255,255,80,0.08);cursor:pointer}
+    .zone-title{font-size:10px;color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:1px}
+    .zone-cards{display:flex;flex-wrap:wrap;gap:3px;align-items:flex-start}
+
+    /* ── Cards ── */
+    .card-thumb{width:48px;height:68px;object-fit:cover;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.7);cursor:pointer;transition:transform .12s,outline .1s}
+    .card-thumb:hover{transform:scale(1.1);z-index:10}
+    .card-thumb.selected{outline:3px solid #ff0;outline-offset:1px}
+    .card-thumb.resting{transform:rotate(90deg);margin:8px 4px}
+    .card-thumb.opp{cursor:default}
+
+    /* ── Hand tray (fixed bottom) ── */
+    #hand_tray{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(to top,#111 80%,transparent);padding:6px 12px 8px;z-index:50;display:flex;align-items:center;gap:6px;overflow-x:auto;min-height:90px}
+    #hand_tray .hand-label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;writing-mode:vertical-rl;margin-right:4px}
+    #hand_tray .card-thumb{width:58px;height:82px;cursor:pointer}
+    #hand_tray .card-thumb.selected{outline:3px solid #ff0}
+
+    /* ── Action bar ── */
+    #actions{display:flex;align-items:center;gap:8px;padding:6px 14px;background:#151528;flex-wrap:wrap}
+    #actions button{padding:4px 10px;border-radius:4px;border:1px solid #555;background:#333;color:#eee;font-size:12px;cursor:pointer}
+    #actions button:hover{background:#444}
+    #actions button.primary{background:#2d5bff;border-color:#2d5bff}
+
+    /* ── Zoom modal ── */
+    .zoom-modal{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:300;cursor:pointer}
+    .zoom-modal img{max-width:85vw;max-height:85vh;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,.8)}
+
+    /* ── Debug ── */
+    details.debug{margin:2px 14px;font-size:11px;margin-bottom:100px}
+    details.debug pre{max-height:180px;overflow:auto;background:#111;padding:6px;border-radius:4px;font-size:10px}
+  </style>
+</head>
+<body>
+
+<!-- ──── Lobby overlay ──── -->
+<div id="lobby">
+  <h2>hOCG – Deck Selection</h2>
+  <div class="deck-input">
+    <label>Server <input id="server" value="localhost:8000" style="width:130px"/></label>
+    <label>Name <input id="name" value="Player" style="width:90px"/></label>
+    <button id="connect">Connect</button>
+  </div>
+  <div class="deck-input" id="deck_row" style="display:none">
+    <label>Decklog code <input id="deck_code" placeholder="e.g. 11QBS" style="width:150px"/></label>
+    <button id="load_deck">Load Deck</button>
+  </div>
+  <div id="lobby_status"></div>
+  <div id="lobby_players"></div>
+</div>
+
+<!-- ──── Top bar ──── -->
+<div id="topbar">
+  <span id="status" style="font-size:12px;color:#8f8"></span>
+  <span id="phase_badge">—</span>
+</div>
+
+<!-- ──── Field ──── -->
+<div id="field">
+  <div class="field-label" id="opp_label">Opponent</div>
+  <div class="playmat-wrap opponent" id="opp_playmat">
+    <img class="playmat-bg" src="/assets/playmat.jpg" alt="opponent playmat">
+  </div>
+  <div class="field-label" id="you_label">You</div>
+  <div class="playmat-wrap owner" id="you_playmat">
+    <img class="playmat-bg" src="/assets/playmat.jpg" alt="your playmat">
+  </div>
+</div>
+
+<!-- ──── Action bar ──── -->
+<div id="actions">
+  <button id="draw" class="primary">Draw 1</button>
+  <button id="shuffle">Shuffle</button>
+  <button id="next_phase">Next Phase</button>
+  <span id="play_hint" style="font-size:11px;color:#777;margin-left:8px"></span>
+</div>
+
+<!-- ──── Hand tray (fixed bottom) ──── -->
+<div id="hand_tray">
+  <div class="hand-label">HAND</div>
+</div>
+
+<!-- ──── Debug ──── -->
+<details class="debug"><summary>Debug JSON</summary>
+  <div style="display:flex;gap:8px">
+    <div style="flex:1"><strong>You</strong><pre id="you_json">—</pre></div>
+    <div style="flex:1"><strong>Opponent</strong><pre id="opp_json">—</pre></div>
+  </div>
+</details>
+
+<div id="zoom_container"></div>
+<script src="main.js"></script>
+</body>
+</html>

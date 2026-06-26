@@ -1,0 +1,303 @@
+/* ══════════════════════════════════════════════════════════════
+   hOCG Web Client – dual-playmat, image cards, decklog lobby
+   ══════════════════════════════════════════════════════════════ */
+let ws = null;
+let playerId = null;
+let matchId  = null;
+let lastState = null;
+let selectedCard = null;   // {card_number, from_zone} when a hand card is selected
+
+const statusEl   = document.getElementById('status');
+const phaseBadge = document.getElementById('phase_badge');
+const lobbyEl    = document.getElementById('lobby');
+const lobbyStatus= document.getElementById('lobby_status');
+const lobbyPlayers = document.getElementById('lobby_players');
+const handTray   = document.getElementById('hand_tray');
+const playHint   = document.getElementById('play_hint');
+
+/* ── Zone bbox definitions (original 2040×1280 playmat) ── */
+const ZONE_DEFS = {
+  life:       [59,51,361,529],
+  holo_power: [1678,51,1981,266],
+  collabo:    [551,121,764,422],
+  centre:     [940,121,1153,422],
+  oshi:       [1345,121,1560,422],
+  deck:       [1766,335,1981,638],
+  back:       [455,625,1658,1014],
+  yell_deck:  [59,687,273,988],
+  archive:    [1766,687,1981,988],
+  hand:       [59,1060,1981,1280]
+};
+const NAT_W = 2040, NAT_H = 1280;
+const PLAY_ZONES = ['centre','collabo','back','oshi','archive','holo_power'];
+
+/* ── Helpers ── */
+function setStatus(t){ statusEl.textContent = t; }
+function sendAction(action){
+  if(!ws||ws.readyState!==1) return;
+  ws.send(JSON.stringify({type:'action', action}));
+}
+function cardImgSrc(cd){
+  if(cd.face_up && cd.image_file) return `/cards/${cd.image_file}`;
+  return '/assets/card_back.webp';
+}
+
+/* ════════════════════ CONNECTION ════════════════════ */
+document.getElementById('connect').onclick = () => {
+  const host = document.getElementById('server').value.trim();
+  const name = document.getElementById('name').value.trim()||'Player';
+  lobbyStatus.textContent = 'Connecting…';
+  ws = new WebSocket(`ws://${host}/ws`);
+  ws.onopen = () => {
+    ws.send(JSON.stringify({type:'join', name}));
+  };
+  ws.onmessage = ev => {
+    try{ handleMsg(JSON.parse(ev.data)); }catch(e){console.error(e);}
+  };
+  ws.onclose = () => {
+    setStatus('Disconnected');
+    lobbyStatus.textContent = 'Disconnected';
+  };
+};
+
+/* ════════════════════ MESSAGE ROUTING ════════════════════ */
+function handleMsg(msg){
+  if(msg.type==='joined'){
+    playerId = msg.player_id;
+    matchId  = msg.match_id;
+    lobbyStatus.textContent = `Joined as Player ${playerId} – load your deck`;
+    document.getElementById('deck_row').style.display = 'flex';
+    return;
+  }
+  if(msg.type==='state_update'){
+    lastState = msg.state;
+    if(lastState) updateFromState(lastState);
+    return;
+  }
+  if(msg.type==='match_start'){
+    lastState = msg.state;
+    lobbyEl.classList.add('hidden');
+    if(lastState) renderGame(lastState);
+    return;
+  }
+}
+
+/* ── Lobby state update (before match starts) ── */
+function updateFromState(state){
+  if(state.started){
+    lobbyEl.classList.add('hidden');
+    renderGame(state);
+    return;
+  }
+  // Still in lobby
+  const pids = Object.keys(state.players);
+  let lines = pids.map(pid=>{
+    const p = state.players[pid];
+    const me = pid===playerId ? ' (you)':'';
+    const rdy = p.ready ? '✓ ready' : 'waiting…';
+    return `Player ${pid}${me}: ${p.name} – ${rdy}${p.deck_code?' ['+p.deck_code+']':''}`;
+  });
+  lobbyPlayers.innerHTML = lines.join('<br/>');
+}
+
+/* ════════════════════ LOAD DECK ════════════════════ */
+document.getElementById('load_deck').onclick = () => {
+  const code = document.getElementById('deck_code').value.trim();
+  if(!code) return;
+  lobbyStatus.textContent = 'Loading deck…';
+  document.getElementById('load_deck').disabled = true;
+  sendAction({type:'load_deck', deck_code:code});
+  // re-enable after 3s just in case
+  setTimeout(()=> document.getElementById('load_deck').disabled = false, 3000);
+};
+
+/* ════════════════════ GAME RENDERING ════════════════════ */
+function renderGame(state){
+  if(!playerId) return;
+  const myData = state.players[playerId];
+  const oppId  = Object.keys(state.players).find(k=>k!==playerId);
+  const opData = oppId ? state.players[oppId] : null;
+
+  // Labels
+  phaseBadge.textContent = state.phase;
+  setStatus(state.turn_player_id===playerId ? "Your turn" : "Opponent's turn");
+  document.getElementById('you_label').textContent = `You – ${myData.name}`;
+  document.getElementById('opp_label').textContent = opData ? `${opData.name}` : 'Opponent';
+
+  // Debug
+  document.getElementById('you_json').textContent = JSON.stringify(myData,null,2);
+  document.getElementById('opp_json').textContent = JSON.stringify(opData,null,2);
+
+  // Playmats
+  renderPlaymat('you_playmat', myData.zones, true);
+  renderPlaymat('opp_playmat', opData ? opData.zones : null, false);
+
+  // Hand tray
+  renderHandTray(myData.zones.hand || []);
+}
+
+/* ── Scale a bbox relative to a playmat <img> ── */
+function scaledBBox(bbox, img){
+  const r = img.getBoundingClientRect();
+  const sx = r.width/NAT_W, sy = r.height/NAT_H;
+  return [Math.round(bbox[0]*sx), Math.round(bbox[1]*sy),
+          Math.round(bbox[2]*sx), Math.round(bbox[3]*sy)];
+}
+
+/* ── Render zones on a playmat ── */
+function renderPlaymat(id, zones, isOwner){
+  const wrap = document.getElementById(id);
+  const img  = wrap.querySelector('img.playmat-bg');
+  wrap.querySelectorAll('.zone').forEach(n=>n.remove());
+  if(!zones) return;
+
+  for(const zname of Object.keys(ZONE_DEFS)){
+    if(zname==='hand') continue; // hand rendered in tray
+    const zd = zones[zname];
+    if(zd===undefined) continue;
+
+    const z = document.createElement('div');
+    z.className = 'zone';
+    z.dataset.zone = zname;
+    const [x1,y1,x2,y2] = scaledBBox(ZONE_DEFS[zname], img);
+    Object.assign(z.style,{left:x1+'px',top:y1+'px',width:(x2-x1)+'px',height:(y2-y1)+'px'});
+
+    const count = Array.isArray(zd)?zd.length: (zd&&zd.count!=null?zd.count:0);
+    z.innerHTML = `<div class="zone-title">${zname} (${count})</div>`;
+    const cards = document.createElement('div');
+    cards.className = 'zone-cards';
+
+    if(Array.isArray(zd)){
+      zd.forEach(cd=>{
+        const im = document.createElement('img');
+        im.className = 'card-thumb'+(isOwner?'':' opp');
+        im.src = cardImgSrc(cd);
+        im.title = `${cd.card_name||''} ${cd.card_number}`;
+        if(cd.resting) im.classList.add('resting');
+        // drag for owner
+        if(isOwner){
+          im.draggable = true;
+          im.addEventListener('dragstart', ev=>{
+            ev.dataTransfer.setData('text/plain', JSON.stringify({card:cd.card_number, from:zname}));
+          });
+        }
+        im.addEventListener('click', ()=> showZoom(im.src));
+        cards.appendChild(im);
+      });
+    } else if(zd&&zd.count!=null){
+      const lbl = document.createElement('div');
+      lbl.style.cssText='font-size:18px;font-weight:700;color:#fff;text-align:center;width:100%;margin-top:4px';
+      lbl.textContent = zd.count;
+      cards.appendChild(lbl);
+    }
+    z.appendChild(cards);
+
+    // Drop target (owner only)
+    if(isOwner){
+      z.addEventListener('dragover', ev=>{ev.preventDefault(); z.classList.add('drag-over');});
+      z.addEventListener('dragleave', ()=>z.classList.remove('drag-over'));
+      z.addEventListener('drop', ev=>{
+        ev.preventDefault(); z.classList.remove('drag-over');
+        try{
+          const d = JSON.parse(ev.dataTransfer.getData('text/plain'));
+          sendAction({type:'move', from_zone:d.from, to_zone:zname, card_number:d.card});
+        }catch(e){}
+      });
+      // Click to play selected hand card here
+      z.addEventListener('click', ev=>{
+        if(!selectedCard) return;
+        if(ev.target.classList.contains('card-thumb')) return; // was a card click
+        sendAction({type:'play_card', card_number:selectedCard.card_number, zone:zname, face_up:true});
+        clearSelection();
+      });
+    }
+    wrap.appendChild(z);
+  }
+
+  // Highlight playable zones when a hand card is selected
+  updatePlayTargets(id, isOwner);
+}
+
+function updatePlayTargets(wrapId, isOwner){
+  const wrap = document.getElementById(wrapId);
+  wrap.querySelectorAll('.zone').forEach(z=>{
+    z.classList.toggle('play-target', isOwner && !!selectedCard && PLAY_ZONES.includes(z.dataset.zone));
+  });
+}
+
+/* ── Hand tray ── */
+function renderHandTray(handCards){
+  // keep the label
+  handTray.innerHTML = '<div class="hand-label">HAND</div>';
+  if(!Array.isArray(handCards)) return;
+  handCards.forEach(cd=>{
+    const img = document.createElement('img');
+    img.className = 'card-thumb';
+    img.src = cardImgSrc(cd);
+    img.title = `${cd.card_name||''} ${cd.card_number}`;
+    img.draggable = true;
+    img.dataset.card = cd.card_number;
+
+    // Click to select for placement
+    img.addEventListener('click', ev=>{
+      ev.stopPropagation();
+      if(selectedCard && selectedCard.card_number===cd.card_number){
+        clearSelection();
+      } else {
+        selectedCard = {card_number:cd.card_number, from_zone:'hand'};
+        // highlight
+        handTray.querySelectorAll('.card-thumb').forEach(i=>i.classList.remove('selected'));
+        img.classList.add('selected');
+        playHint.textContent = `Selected ${cd.card_name||cd.card_number} — click a zone to play`;
+        // update play-target highlights
+        if(lastState) renderGame(lastState);
+      }
+    });
+
+    // Right-click → zoom
+    img.addEventListener('contextmenu', ev=>{
+      ev.preventDefault();
+      showZoom(img.src);
+    });
+    // Also left-click on double-click → zoom
+    img.addEventListener('dblclick', ev=>{
+      ev.stopPropagation();
+      showZoom(img.src);
+    });
+
+    // Drag from hand
+    img.addEventListener('dragstart', ev=>{
+      ev.dataTransfer.setData('text/plain', JSON.stringify({card:cd.card_number, from:'hand'}));
+    });
+
+    handTray.appendChild(img);
+  });
+}
+
+function clearSelection(){
+  selectedCard = null;
+  handTray.querySelectorAll('.card-thumb').forEach(i=>i.classList.remove('selected'));
+  playHint.textContent = '';
+  document.querySelectorAll('.zone.play-target').forEach(z=>z.classList.remove('play-target'));
+}
+
+/* ── Zoom ── */
+function showZoom(src){
+  const m = document.createElement('div');
+  m.className = 'zoom-modal';
+  const big = document.createElement('img');
+  big.src = src;
+  m.appendChild(big);
+  m.addEventListener('click', ()=>m.remove());
+  document.getElementById('zoom_container').appendChild(m);
+}
+
+/* ════════════════════ ACTION BUTTONS ════════════════════ */
+document.getElementById('draw').onclick   = ()=> sendAction({type:'draw', count:1});
+document.getElementById('shuffle').onclick= ()=> sendAction({type:'shuffle_deck'});
+document.getElementById('next_phase').onclick = ()=> sendAction({type:'next_phase'});
+
+/* ── Responsive redraw ── */
+window.addEventListener('resize', ()=>{ if(lastState && lastState.started) renderGame(lastState); });
+/* Clear selection on Escape */
+document.addEventListener('keydown', ev=>{ if(ev.key==='Escape') clearSelection(); });
