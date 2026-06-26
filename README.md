@@ -286,3 +286,12 @@ Each page contains a `<div class="cardlist-Detail_Box_Inner">` with all card fie
 Card images are downloaded from the same domain using the `image_url` path (e.g. `wget https://hololive-official-cardgame.com/wp-content/images/cardlist/hBP04/hBP04-001_OSR.png`).
 
 The `local_images` array is built by matching filenames in the `cards/` directory to the card number prefix (e.g. `hBP01-014` matches both `hBP01-014_RR.png` and `hBP01-014_UR.png`).
+
+
+
+## SERVER RUN
+source .venv/bin/activate && python -m uvicorn game_tools.server:app --host 0.0.0.0 --port 8000
+
+open 2 browser go to 
+
+local:8000/client/index.html
